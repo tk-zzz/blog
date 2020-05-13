@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	
-	<sitemap>
-	   	<loc>https://tk-zzz.github.io/blog/en/sitemap.xml</loc>
-		
-	   	<lastmod>2019-03-20T00:00:00+00:00</lastmod>
-		
-	</sitemap>
-	
-	<sitemap>
-	   	<loc>https://tk-zzz.github.io/blog/pt-br/sitemap.xml</loc>
-		
-	   	<lastmod>2018-12-31T00:00:00+00:00</lastmod>
-		
-	</sitemap>
-	
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/posts/hello/</loc>
+    <lastmod>2020-05-14T03:24:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/</loc>
+    <lastmod>2020-05-14T03:24:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/posts/</loc>
+    <lastmod>2020-05-14T03:24:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/snippets/first/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/projects/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/projects/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/snippets/second/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/series/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/snippets/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/blog/tags/</loc>
+  </url>
+  
+</urlset>
