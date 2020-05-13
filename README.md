@@ -1,1 +1,1 @@
-https://github.com/tk-zzz/blog
+https://tk-zzz.github.io/blog/
