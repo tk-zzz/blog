@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on GLITCH</title>
+    <link>https://tk-zzz.github.io/blog/tags/android/</link>
+    <description>Recent content in Android on GLITCH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://tk-zzz.github.io/blog/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FragmentのonCreateViewとonViewCreated</title>
+      <link>https://tk-zzz.github.io/blog/posts/2020/fragment_oncreateview_onviewcreate/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2020/fragment_oncreateview_onviewcreate/</guid>
+      <description>&lt;p&gt;FragmentのonCreateViewとonViewCreatedの違い。&lt;br&gt;
+あまり意識をしていなかったが、ドキュメントに下記の記載がある。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is recommended to only inflate the layout in this method and move logic that operates on the returned View to onViewCreated(View, Bundle).&lt;br&gt;
+&lt;a href=&#34;https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview&#34;&gt;https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;つまり、onCreteViewではレイアウトのinflateだけを行い、他の処理はonViewCreatedで行うことが推奨されている。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

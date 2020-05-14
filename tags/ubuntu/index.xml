@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on GLITCH</title>
+    <link>https://tk-zzz.github.io/blog/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on GLITCH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 19 Dec 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://tk-zzz.github.io/blog/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ubuntu18.04でスリープ解除後にBluetoothがオフになる場合の対処法</title>
+      <link>https://tk-zzz.github.io/blog/posts/2019/ubuntu_bluetooth/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2019/ubuntu_bluetooth/</guid>
+      <description>&lt;p&gt;Ubuntu18.04をノートPCに入れて使っているが、スリープ解除後にbluetoothが効かなくなるときがある。&lt;br&gt;
+とりあえず下記コマンドでサービスをリスタートすると再びBluetoothをONできるようになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;systemctl restart bluetooth.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

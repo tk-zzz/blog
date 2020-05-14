@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on GLITCH</title>
+    <link>https://tk-zzz.github.io/blog/tags/git/</link>
+    <description>Recent content in Git on GLITCH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://tk-zzz.github.io/blog/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>間違えてgit commit --amendしてしまったときの解決方法</title>
+      <link>https://tk-zzz.github.io/blog/posts/2020/solution_git_commit_amend/</link>
+      <pubDate>Thu, 20 Feb 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2020/solution_git_commit_amend/</guid>
+      <description>&lt;p&gt;間違えてgit commit -a &amp;ndash;amendしてしまい、
+一つ前のcommitに入れたくない変更が入ってしまった。&lt;br&gt;
+git resetで戻そうと思い、git logで履歴を確認するが
+先頭がamendしたcommitになっておりresetできなくて困った。&lt;/p&gt;
+&lt;h2 id=&#34;解決方法&#34;&gt;解決方法&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;git reflog&lt;/strong&gt;でHEADの変更履歴がみれるので、
+amendする前の状態にresetすることができる。&lt;br&gt;
+resetしたあと普通にgit commit -aすることで解決した。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Initial commitに後続のcommitを含めたい</title>
+      <link>https://tk-zzz.github.io/blog/posts/2020/rebase_initial_commit/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2020/rebase_initial_commit/</guid>
+      <description>&lt;p&gt;Initial commitに後続のcommitを含めたかったので、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i HEAD^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;したところ、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;fatal: Needed a single revision
+invalid upstream &amp;#39;HEAD^^^&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と表示されてできない。&lt;/p&gt;
+&lt;p&gt;調べてみると&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i --root
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;でInitial commitを含めたrebaseができるらしい。&lt;br&gt;
+実際にやってみるといつものrebase画面にInitialCommitが表示されたので、&lt;br&gt;
+普段のrebaseと同様にsquashすることで後続のCommitを消してInitalCommitに含めることができた。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

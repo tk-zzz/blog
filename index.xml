@@ -1,23 +1,96 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>myblog</title>
+    <title>GLITCH</title>
     <link>https://tk-zzz.github.io/blog/</link>
-    <description>Recent content on myblog</description>
+    <description>Recent content on GLITCH</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 14 May 2020 03:24:06 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>heloooo</title>
-      <link>https://tk-zzz.github.io/blog/posts/hello/</link>
-      <pubDate>Thu, 14 May 2020 03:24:06 +0900</pubDate>
+      <title>FragmentのonCreateViewとonViewCreated</title>
+      <link>https://tk-zzz.github.io/blog/posts/2020/fragment_oncreateview_onviewcreate/</link>
+      <pubDate>Wed, 15 Apr 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/hello/</guid>
-      <description></description>
+      <guid>https://tk-zzz.github.io/blog/posts/2020/fragment_oncreateview_onviewcreate/</guid>
+      <description>&lt;p&gt;FragmentのonCreateViewとonViewCreatedの違い。&lt;br&gt;
+あまり意識をしていなかったが、ドキュメントに下記の記載がある。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is recommended to only inflate the layout in this method and move logic that operates on the returned View to onViewCreated(View, Bundle).&lt;br&gt;
+&lt;a href=&#34;https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview&#34;&gt;https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;つまり、onCreteViewではレイアウトのinflateだけを行い、他の処理はonViewCreatedで行うことが推奨されている。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>間違えてgit commit --amendしてしまったときの解決方法</title>
+      <link>https://tk-zzz.github.io/blog/posts/2020/solution_git_commit_amend/</link>
+      <pubDate>Thu, 20 Feb 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2020/solution_git_commit_amend/</guid>
+      <description>&lt;p&gt;間違えてgit commit -a &amp;ndash;amendしてしまい、
+一つ前のcommitに入れたくない変更が入ってしまった。&lt;br&gt;
+git resetで戻そうと思い、git logで履歴を確認するが
+先頭がamendしたcommitになっておりresetできなくて困った。&lt;/p&gt;
+&lt;h2 id=&#34;解決方法&#34;&gt;解決方法&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;git reflog&lt;/strong&gt;でHEADの変更履歴がみれるので、
+amendする前の状態にresetすることができる。&lt;br&gt;
+resetしたあと普通にgit commit -aすることで解決した。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>android studioのJavaの場所</title>
+      <link>https://tk-zzz.github.io/blog/posts/2020/android_studio_java_location/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2020/android_studio_java_location/</guid>
+      <description>&lt;p&gt;ターミナルからgradleビルドをするときにandroid studioで使っているものと同じものを使いたいと思い、&lt;br&gt;
+Preferenceあたりを探したがなかなか見つからなかったのでメモ。&lt;/p&gt;
+&lt;p&gt;結論としてはAndroidStudioのPreferenceではなく&lt;br&gt;
+&lt;strong&gt;File &amp;gt; Project Structure &amp;gt; SDK Location&lt;/strong&gt;
+のJDK locationに見つけた。&lt;br&gt;
+下記のように.zshrcに追加した。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh:.zshrc&#34; data-lang=&#34;zsh:.zshrc&#34;&gt;&lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;export&lt;/span&gt; JAVA_HOME=/Applications/Android&lt;span style=&#34;color:#0ff;font-weight:bold&#34;&gt;\ &lt;/span&gt;Studio.app/Contents/jre/jdk/Contents/Home
+&lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;export&lt;/span&gt; PATH=$PATH:$JAVA_HOME/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Initial commitに後続のcommitを含めたい</title>
+      <link>https://tk-zzz.github.io/blog/posts/2020/rebase_initial_commit/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2020/rebase_initial_commit/</guid>
+      <description>&lt;p&gt;Initial commitに後続のcommitを含めたかったので、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i HEAD^^^
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;したところ、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;fatal: Needed a single revision
+invalid upstream &amp;#39;HEAD^^^&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と表示されてできない。&lt;/p&gt;
+&lt;p&gt;調べてみると&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i --root
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;でInitial commitを含めたrebaseができるらしい。&lt;br&gt;
+実際にやってみるといつものrebase画面にInitialCommitが表示されたので、&lt;br&gt;
+普段のrebaseと同様にsquashすることで後続のCommitを消してInitalCommitに含めることができた。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu18.04でスリープ解除後にBluetoothがオフになる場合の対処法</title>
+      <link>https://tk-zzz.github.io/blog/posts/2019/ubuntu_bluetooth/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2019/ubuntu_bluetooth/</guid>
+      <description>&lt;p&gt;Ubuntu18.04をノートPCに入れて使っているが、スリープ解除後にbluetoothが効かなくなるときがある。&lt;br&gt;
+とりあえず下記コマンドでサービスをリスタートすると再びBluetoothをONできるようになる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;systemctl restart bluetooth.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
