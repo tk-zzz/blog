@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on GLITCH</title>
+    <title>Git on ruin (new)</title>
     <link>https://tk-zzz.github.io/blog/tags/git/</link>
-    <description>Recent content in Git on GLITCH</description>
+    <description>Recent content in Git on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2020 11:58:28 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/blog/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【Git】ローカルブランチを全削除する</title>
+      <link>https://tk-zzz.github.io/blog/posts/2020/remove_all_branches/</link>
+      <pubDate>Mon, 18 May 2020 11:58:28 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/blog/posts/2020/remove_all_branches/</guid>
+      <description>&lt;p&gt;このコマンドでmaster以外のローカルブランチをすべて削除できる。&lt;br&gt;
+(masterも削除しようとするが消せないので結果的にmasterだけ残る)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git branch | xargs git branch -D
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;また、例えば任意の文字列を含むブランチを消したい場合はgrepをかませることで実現できる。&lt;br&gt;
+たとえばfeature/~~~というブランチを全部削除する場合は下記のようにしている。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git branch | grep feature | xargs git branch -D
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ただ、これだとfeature/~~~のブランチだけでなくfeatureが含まれる名前のブランチすべてが削除されるので注意。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>間違えてgit commit --amendしてしまったときの解決方法</title>
