@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on ruin (new)</title>
-    <link>https://tk-zzz.github.io/blog/posts/</link>
+    <link>https://tk-zzz.github.io/posts/</link>
     <description>Recent content in Posts on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 18 May 2020 11:58:28 +0900</lastBuildDate>
     
-	<atom:link href="https://tk-zzz.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tk-zzz.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>【Git】ローカルブランチを全削除する</title>
-      <link>https://tk-zzz.github.io/blog/posts/2020/remove_all_branches/</link>
+      <link>https://tk-zzz.github.io/posts/2020/remove_all_branches/</link>
       <pubDate>Mon, 18 May 2020 11:58:28 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2020/remove_all_branches/</guid>
+      <guid>https://tk-zzz.github.io/posts/2020/remove_all_branches/</guid>
       <description>&lt;p&gt;このコマンドでmaster以外のローカルブランチをすべて削除できる。&lt;br&gt;
 (masterも削除しようとするが消せないので結果的にmasterだけ残る)&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git branch | xargs git branch -D
@@ -29,10 +29,10 @@
     
     <item>
       <title>FragmentのonCreateViewとonViewCreated</title>
-      <link>https://tk-zzz.github.io/blog/posts/2020/fragment_oncreateview_onviewcreate/</link>
+      <link>https://tk-zzz.github.io/posts/2020/fragment_oncreateview_onviewcreate/</link>
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2020/fragment_oncreateview_onviewcreate/</guid>
+      <guid>https://tk-zzz.github.io/posts/2020/fragment_oncreateview_onviewcreate/</guid>
       <description>&lt;p&gt;FragmentのonCreateViewとonViewCreatedの違い。&lt;br&gt;
 あまり意識をしていなかったが、ドキュメントに下記の記載がある。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -45,10 +45,10 @@
     
     <item>
       <title>間違えてgit commit --amendしてしまったときの解決方法</title>
-      <link>https://tk-zzz.github.io/blog/posts/2020/solution_git_commit_amend/</link>
+      <link>https://tk-zzz.github.io/posts/2020/solution_git_commit_amend/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2020/solution_git_commit_amend/</guid>
+      <guid>https://tk-zzz.github.io/posts/2020/solution_git_commit_amend/</guid>
       <description>&lt;p&gt;間違えてgit commit -a &amp;ndash;amendしてしまい、
 一つ前のcommitに入れたくない変更が入ってしまった。&lt;br&gt;
 git resetで戻そうと思い、git logで履歴を確認するが
@@ -62,10 +62,10 @@ resetしたあと普通にgit commit -aすることで解決した。&lt;/p&gt;
     
     <item>
       <title>android studioのJavaの場所</title>
-      <link>https://tk-zzz.github.io/blog/posts/2020/android_studio_java_location/</link>
+      <link>https://tk-zzz.github.io/posts/2020/android_studio_java_location/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2020/android_studio_java_location/</guid>
+      <guid>https://tk-zzz.github.io/posts/2020/android_studio_java_location/</guid>
       <description>&lt;p&gt;ターミナルからgradleビルドをするときにandroid studioで使っているものと同じものを使いたいと思い、&lt;br&gt;
 Preferenceあたりを探したがなかなか見つからなかったのでメモ。&lt;/p&gt;
 &lt;p&gt;結論としてはAndroidStudioのPreferenceではなく&lt;br&gt;
@@ -79,10 +79,10 @@ Preferenceあたりを探したがなかなか見つからなかったのでメ�
     
     <item>
       <title>Initial commitに後続のcommitを含めたい</title>
-      <link>https://tk-zzz.github.io/blog/posts/2020/rebase_initial_commit/</link>
+      <link>https://tk-zzz.github.io/posts/2020/rebase_initial_commit/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2020/rebase_initial_commit/</guid>
+      <guid>https://tk-zzz.github.io/posts/2020/rebase_initial_commit/</guid>
       <description>&lt;p&gt;Initial commitに後続のcommitを含めたかったので、&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i HEAD^^^
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;したところ、&lt;/p&gt;
@@ -99,10 +99,10 @@ invalid upstream &amp;#39;HEAD^^^&amp;#39;
     
     <item>
       <title>Ubuntu18.04でスリープ解除後にBluetoothがオフになる場合の対処法</title>
-      <link>https://tk-zzz.github.io/blog/posts/2019/ubuntu_bluetooth/</link>
+      <link>https://tk-zzz.github.io/posts/2019/ubuntu_bluetooth/</link>
       <pubDate>Thu, 19 Dec 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2019/ubuntu_bluetooth/</guid>
+      <guid>https://tk-zzz.github.io/posts/2019/ubuntu_bluetooth/</guid>
       <description>&lt;p&gt;Ubuntu18.04をノートPCに入れて使っているが、スリープ解除後にbluetoothが効かなくなるときがある。&lt;br&gt;
 とりあえず下記コマンドでサービスをリスタートすると再びBluetoothをONできるようになる。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;systemctl restart bluetooth.service

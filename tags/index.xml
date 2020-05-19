@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on ruin (new)</title>
-    <link>https://tk-zzz.github.io/blog/tags/</link>
+    <link>https://tk-zzz.github.io/tags/</link>
     <description>Recent content in Tags on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 18 May 2020 11:58:28 +0900</lastBuildDate>
     
-	<atom:link href="https://tk-zzz.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tk-zzz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Git</title>
-      <link>https://tk-zzz.github.io/blog/tags/git/</link>
+      <link>https://tk-zzz.github.io/tags/git/</link>
       <pubDate>Mon, 18 May 2020 11:58:28 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/tags/git/</guid>
+      <guid>https://tk-zzz.github.io/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Android</title>
-      <link>https://tk-zzz.github.io/blog/tags/android/</link>
+      <link>https://tk-zzz.github.io/tags/android/</link>
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/tags/android/</guid>
+      <guid>https://tk-zzz.github.io/tags/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AndroidStudio</title>
-      <link>https://tk-zzz.github.io/blog/tags/androidstudio/</link>
+      <link>https://tk-zzz.github.io/tags/androidstudio/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/tags/androidstudio/</guid>
+      <guid>https://tk-zzz.github.io/tags/androidstudio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ubuntu</title>
-      <link>https://tk-zzz.github.io/blog/tags/ubuntu/</link>
+      <link>https://tk-zzz.github.io/tags/ubuntu/</link>
       <pubDate>Thu, 19 Dec 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/tags/ubuntu/</guid>
+      <guid>https://tk-zzz.github.io/tags/ubuntu/</guid>
       <description></description>
     </item>
     

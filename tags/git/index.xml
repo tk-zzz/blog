@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on ruin (new)</title>
-    <link>https://tk-zzz.github.io/blog/tags/git/</link>
+    <link>https://tk-zzz.github.io/tags/git/</link>
     <description>Recent content in Git on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 18 May 2020 11:58:28 +0900</lastBuildDate>
     
-	<atom:link href="https://tk-zzz.github.io/blog/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tk-zzz.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>【Git】ローカルブランチを全削除する</title>
-      <link>https://tk-zzz.github.io/blog/posts/2020/remove_all_branches/</link>
+      <link>https://tk-zzz.github.io/posts/2020/remove_all_branches/</link>
       <pubDate>Mon, 18 May 2020 11:58:28 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2020/remove_all_branches/</guid>
+      <guid>https://tk-zzz.github.io/posts/2020/remove_all_branches/</guid>
       <description>&lt;p&gt;このコマンドでmaster以外のローカルブランチをすべて削除できる。&lt;br&gt;
 (masterも削除しようとするが消せないので結果的にmasterだけ残る)&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git branch | xargs git branch -D
@@ -29,10 +29,10 @@
     
     <item>
       <title>間違えてgit commit --amendしてしまったときの解決方法</title>
-      <link>https://tk-zzz.github.io/blog/posts/2020/solution_git_commit_amend/</link>
+      <link>https://tk-zzz.github.io/posts/2020/solution_git_commit_amend/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2020/solution_git_commit_amend/</guid>
+      <guid>https://tk-zzz.github.io/posts/2020/solution_git_commit_amend/</guid>
       <description>&lt;p&gt;間違えてgit commit -a &amp;ndash;amendしてしまい、
 一つ前のcommitに入れたくない変更が入ってしまった。&lt;br&gt;
 git resetで戻そうと思い、git logで履歴を確認するが
@@ -46,10 +46,10 @@ resetしたあと普通にgit commit -aすることで解決した。&lt;/p&gt;
     
     <item>
       <title>Initial commitに後続のcommitを含めたい</title>
-      <link>https://tk-zzz.github.io/blog/posts/2020/rebase_initial_commit/</link>
+      <link>https://tk-zzz.github.io/posts/2020/rebase_initial_commit/</link>
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
       
-      <guid>https://tk-zzz.github.io/blog/posts/2020/rebase_initial_commit/</guid>
+      <guid>https://tk-zzz.github.io/posts/2020/rebase_initial_commit/</guid>
       <description>&lt;p&gt;Initial commitに後続のcommitを含めたかったので、&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i HEAD^^^
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;したところ、&lt;/p&gt;
