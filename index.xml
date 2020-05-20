@@ -6,10 +6,28 @@
     <description>Recent content on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 May 2020 11:58:28 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2020 19:05:45 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【vim】 一つずつ確認しながら置換</title>
+      <link>https://tk-zzz.github.io/posts/2020/vim_replace/</link>
+      <pubDate>Wed, 20 May 2020 19:05:45 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/vim_replace/</guid>
+      <description>&lt;p&gt;下記コマンドで開いているファイル内の文字列を置換できる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/gc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ここからはオプションの解説。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;オプションをつけないと、一行の中で複数ヒットする場合でも１つ目だけが置換される。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後ろにgを入れると一行内に複数ヒットしてもすべて置換される。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/gc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そしてヒットした文字列を一つずつ確認したい場合はcをつけます。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>【Git】ローカルブランチを全削除する</title>
