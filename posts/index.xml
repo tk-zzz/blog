@@ -6,10 +6,27 @@
     <description>Recent content in Posts on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 20 May 2020 19:05:45 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 01:47:13 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【Hugo】Coder themeでGoogle Adsenseのコードを入れる</title>
+      <link>https://tk-zzz.github.io/posts/2020/add_google_adsense_code/</link>
+      <pubDate>Fri, 22 May 2020 01:47:13 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/add_google_adsense_code/</guid>
+      <description>&lt;p&gt;私が現在このブログで使っている&lt;a href=&#34;https://themes.gohugo.io/hugo-coder/&#34;&gt;Coder&lt;/a&gt;でGoogle Adsenseのコードを入れてみた。&lt;br&gt;
+テンプレートでいじるファイルは&lt;a href=&#34;https://github.com/luizdepra/hugo-coder/blob/master/layouts/_default/baseof.html#L4&#34;&gt;layout/_default/baseof.html&lt;/a&gt;。&lt;br&gt;
+このファイルの&amp;lt;head&amp;gt;の任意の場所にAdsenseのコードを貼ると、全てのページに適用された。&lt;br&gt;
+ちなみに私は一番最後の&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;    {{ hugo.Generator }}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;の下に挿入しました。&lt;/p&gt;
+&lt;p&gt;現在審査中…&lt;br&gt;
+テンプレの残っている部分が多いので審査が通らないような気がする。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>【vim】 一つずつ確認しながら置換</title>

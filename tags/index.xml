@@ -6,10 +6,37 @@
     <description>Recent content in Tags on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 18 May 2020 11:58:28 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 01:47:13 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Coder</title>
+      <link>https://tk-zzz.github.io/tags/coder/</link>
+      <pubDate>Fri, 22 May 2020 01:47:13 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/tags/coder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Adsense</title>
+      <link>https://tk-zzz.github.io/tags/google-adsense/</link>
+      <pubDate>Fri, 22 May 2020 01:47:13 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/tags/google-adsense/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://tk-zzz.github.io/tags/hugo/</link>
+      <pubDate>Fri, 22 May 2020 01:47:13 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Git</title>
