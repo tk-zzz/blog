@@ -6,10 +6,31 @@
     <description>Recent content in Android on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Apr 2020 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 01:22:34 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【Android】モジュール追加 私はこんな風にしてます</title>
+      <link>https://tk-zzz.github.io/posts/2020/android_add_module/</link>
+      <pubDate>Wed, 27 May 2020 01:22:34 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/android_add_module/</guid>
+      <description>&lt;p&gt;Androidでモジュールを追加するとき。
+例えば&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;modules/features/example/ui
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;というディレクトリのexample-uiモジュールを作りたいとき。&lt;/p&gt;
+&lt;p&gt;AndroidStudioの左側Projectのあたりで右クリックし&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;New &amp;gt; Module
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;するとダイアログがでてくるので&lt;/p&gt;
+&lt;p&gt;Android Library を選択し&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;Application/Library name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; example-ui  
+Module name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; :modules:features:example:ui  
+&lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;package&lt;/span&gt; name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; com.hogehoge.example.ui  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;としてFinishすることで完了。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>FragmentのonCreateViewとonViewCreated</title>
