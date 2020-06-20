@@ -17,10 +17,9 @@
       <pubDate>Thu, 19 Dec 2019 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2019/ubuntu_bluetooth/</guid>
-      <description>&lt;p&gt;Ubuntu18.04をノートPCに入れて使っているが、スリープ解除後にbluetoothが効かなくなるときがある。&lt;br&gt;
-とりあえず下記コマンドでサービスをリスタートすると再びBluetoothをONできるようになる。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;systemctl restart bluetooth.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <description>Ubuntu18.04をノートPCに入れて使っているが、スリープ解除後にbluetoothが効かなくなるときがある。
+とりあえず下記コマンドでサービスをリスタートすると再びBluetoothをONできるようになる。
+systemctl restart bluetooth.service </description>
     </item>
     
   </channel>

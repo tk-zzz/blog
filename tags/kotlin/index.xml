@@ -17,12 +17,9 @@
       <pubDate>Fri, 22 May 2020 02:42:02 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/kotlin_list_map/</guid>
-      <description>&lt;p&gt;List#mapで各要素に処理を行い、その返却値を値に入れたlistを返却する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;resources.map {it.toGroupieItem()}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上記のようなコードで少し悩んでいたが、resourcesというlistの各要素がtoGroupieItem()で
-GroupieItemに変換されて、それが入ったあらたなListが返却されていたということだった。&lt;/p&gt;
-&lt;p&gt;参考：https://qiita.com/kiririnyo/items/aee905225902d096f7c0#map-mapindexed-mapnotnull&lt;/p&gt;
-</description>
+      <description>List#mapで各要素に処理を行い、その返却値を値に入れたlistを返却する。
+resources.map {it.toGroupieItem()} 上記のようなコードで少し悩んでいたが、resourcesというlistの各要素がtoGroupieItem()で GroupieItemに変換されて、それが入ったあらたなListが返却されていたということだった。
+参考：https://qiita.com/kiririnyo/items/aee905225902d096f7c0#map-mapindexed-mapnotnull</description>
     </item>
     
   </channel>

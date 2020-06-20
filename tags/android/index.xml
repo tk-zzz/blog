@@ -17,19 +17,12 @@
       <pubDate>Wed, 27 May 2020 01:22:34 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/android_add_module/</guid>
-      <description>&lt;p&gt;Androidでモジュールを追加するとき。
-例えば&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;modules/features/example/ui
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;というディレクトリのexample-uiモジュールを作りたいとき。&lt;/p&gt;
-&lt;p&gt;AndroidStudioの左側Projectのあたりで右クリックし&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;New &amp;gt; Module
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;するとダイアログがでてくるので&lt;/p&gt;
-&lt;p&gt;Android Library を選択し&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;Application/Library name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; example-ui  
-Module name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; :modules:features:example:ui  
-&lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;package&lt;/span&gt; name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; com.hogehoge.example.ui  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;としてFinishすることで完了。&lt;/p&gt;
-</description>
+      <description>Androidでモジュールを追加するとき。 例えば
+modules/features/example/ui というディレクトリのexample-uiモジュールを作りたいとき。
+AndroidStudioの左側Projectのあたりで右クリックし
+New &amp;gt; Module するとダイアログがでてくるので
+Android Library を選択し
+Application/Library name → example-ui Module name → :modules:features:example:ui package name → com.hogehoge.example.ui としてFinishすることで完了。</description>
     </item>
     
     <item>
@@ -38,14 +31,11 @@ Module name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; :modules:fea
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/fragment_oncreateview_onviewcreate/</guid>
-      <description>&lt;p&gt;FragmentのonCreateViewとonViewCreatedの違い。&lt;br&gt;
-あまり意識をしていなかったが、ドキュメントに下記の記載がある。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;It is recommended to only inflate the layout in this method and move logic that operates on the returned View to onViewCreated(View, Bundle).&lt;br&gt;
-&lt;a href=&#34;https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview&#34;&gt;https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;つまり、onCreteViewではレイアウトのinflateだけを行い、他の処理はonViewCreatedで行うことが推奨されている。&lt;/p&gt;
-</description>
+      <description>FragmentのonCreateViewとonViewCreatedの違い。
+あまり意識をしていなかったが、ドキュメントに下記の記載がある。
+ It is recommended to only inflate the layout in this method and move logic that operates on the returned View to onViewCreated(View, Bundle).
+https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview
+ つまり、onCreteViewではレイアウトのinflateだけを行い、他の処理はonViewCreatedで行うことが推奨されている。</description>
     </item>
     
   </channel>

@@ -17,38 +17,23 @@
       <pubDate>Sun, 21 Jun 2020 00:38:31 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/aseprite_to_launchpad/</guid>
-      <description>&lt;p&gt;自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので
-他のアプリのようにLaunchPadから起動できるようにした。&lt;br&gt;
-Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。&lt;br&gt;
-Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。&lt;/p&gt;
-&lt;h1 id=&#34;finderに登録する&#34;&gt;Finderに登録する&lt;/h1&gt;
-&lt;p&gt;まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。&lt;br&gt;
-まず&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;mkdir -p /Application/Aseprite.app/Contents/MacOS/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;で必要なディレクトリを作成。&lt;br&gt;
-続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。&lt;/p&gt;
-&lt;p&gt;この時点でFinderのApplicationからクリックなどで起動できるようになる。&lt;/p&gt;
-&lt;h1 id=&#34;launchpadに登録する&#34;&gt;LaunchPadに登録する&lt;/h1&gt;
-&lt;p&gt;ここまでではまだLaunchPadに表示されなかった。&lt;br&gt;
-MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。&lt;br&gt;
-これがあるとLaunchPadに表示されるようになる。&lt;br&gt;
-&lt;a href=&#34;https://github.com/haxpor/aseprite-macos-buildsh/blob/master/Aseprite.app/Contents/Info.plist&#34;&gt;asepriteをビルドしているプロジェクト&lt;/a&gt;がGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。&lt;br&gt;
-しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。&lt;/p&gt;
-&lt;p&gt;まず、アイコンに関しては&lt;a href=&#34;https://github.com/haxpor/aseprite-macos-buildsh/blob/master/Aseprite.app/Contents/Resources/applet.icns&#34;&gt;このファイル&lt;/a&gt;をダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。&lt;/p&gt;
-&lt;p&gt;Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;
-&amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/D    TDs/PropertyList-1.0.dtd&amp;#34;&amp;gt;
-    &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt;
-    &amp;lt;dict&amp;gt;
-    &amp;lt;key&amp;gt;CFBundleIconFile&amp;lt;/key&amp;gt;
-    &amp;lt;string&amp;gt;applet.icns&amp;lt;/string&amp;gt;
-    &amp;lt;key&amp;gt;CFBundleName&amp;lt;/key&amp;gt;
-    &amp;lt;string&amp;gt;Aseprite&amp;lt;/string&amp;gt;
-&amp;lt;/dict&amp;gt;
-&amp;lt;/plist&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、&lt;br&gt;
-うまく反映されないときは一度再起動をすると良いかもしれない。&lt;/p&gt;
-</description>
+      <description>自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので 他のアプリのようにLaunchPadから起動できるようにした。
+Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。
+Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。
+Finderに登録する まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。
+まず
+mkdir -p /Application/Aseprite.app/Contents/MacOS/ で必要なディレクトリを作成。
+続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。
+この時点でFinderのApplicationからクリックなどで起動できるようになる。
+LaunchPadに登録する ここまでではまだLaunchPadに表示されなかった。
+MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。
+これがあるとLaunchPadに表示されるようになる。
+asepriteをビルドしているプロジェクトがGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。
+しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。
+まず、アイコンに関してはこのファイルをダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。
+Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/D TDs/PropertyList-1.0.dtd&amp;#34;&amp;gt; &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;CFBundleIconFile&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;applet.icns&amp;lt;/string&amp;gt; &amp;lt;key&amp;gt;CFBundleName&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;Aseprite&amp;lt;/string&amp;gt; &amp;lt;/dict&amp;gt; &amp;lt;/plist&amp;gt; LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、
+うまく反映されないときは一度再起動をすると良いかもしれない。</description>
     </item>
     
     <item>
@@ -57,71 +42,22 @@ MacのアプリにはInfo.plistというファイルでアプリの情報を管�
       <pubDate>Sat, 20 Jun 2020 10:45:59 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/aseprite_build/</guid>
-      <description>&lt;p&gt;OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。&lt;/p&gt;
-&lt;p&gt;基本的には&lt;a href=&#34;https://github.com/aseprite/aseprite/blob/master/INSTALL.md&#34;&gt;INSTALL.md&lt;/a&gt;にかかれている通りにやれば良い。&lt;/p&gt;
-&lt;h4 id=&#34;依存するものをインストール&#34;&gt;依存するものをインストール&lt;/h4&gt;
-&lt;p&gt;自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。&lt;/p&gt;
-&lt;p&gt;cmakeとninjaはHomebrewでインストール&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;brew install cmake&lt;/code&gt;&lt;br&gt;
-&lt;code&gt;brew install ninja&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;skiaは記載されているリンクからビルド済みのものをダウンロードし、
-&lt;code&gt;$HOME/deps/&lt;/code&gt;
-に展開した。&lt;/p&gt;
-&lt;h4 id=&#34;cmake&#34;&gt;cmake&lt;/h4&gt;
-&lt;p&gt;INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、
-CMakeListが無いようなエラーがでた。&lt;br&gt;
-INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。&lt;br&gt;
--B buildをコマンドに追加することでcmakeが走った。&lt;/p&gt;
-&lt;p&gt;下記が実行したコマンド&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;cmake \       
-  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-  -DCMAKE_OSX_ARCHITECTURES=x86_64 \
-  -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
-  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \
-  -DLAF_BACKEND=skia \
-  -DSKIA_DIR=$HOME/deps/skia \
-  -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \
-  -B build \
-  -G Ninja \
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;ninja&#34;&gt;ninja&lt;/h4&gt;
-&lt;p&gt;cmakeが終わったら
-&lt;code&gt;ninja aseprite&lt;/code&gt;
-でビルドが完了するようだが、ここもでもかなり詰まった。&lt;br&gt;
-まず、ninja asepriteはbuildディレクトリでする。&lt;/p&gt;
-&lt;p&gt;実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。&lt;br&gt;
-しかし、そのうちエラーでタスクが進まなくなった。
-エラー内容は下記。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o
-FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I../third_party/zlib -Ithird_party/zlib -I../third_party/libpng -Ithird_party/libpng -I../third_party/libwebp/src -I../third_party/tinyxml -I../third_party/pixman/pixman -I. -I../third_party/freetype2/include -I../third_party/harfbuzz/src -I../third_party/giflib/lib -I../third_party/jpeg -Ithird_party/cmark -I../third_party/curl/include -I../third_party/simpleini -I../src -I../src/observable -I../laf -Ilaf -I../laf/third_party/stringencoders/src -stdlib=libc++ -Wall -Wno-switch -O2 -g -DNDEBUG -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.9   -Wno-sign-compare -std=c++11 -MD -MT src/net/CMakeFiles/net-lib.dir/http_request.cpp.o -MF src/net/CMakeFiles/net-lib.dir/http_request.cpp.o.d -o src/net/CMakeFiles/net-lib.dir/http_request.cpp.o -c ../src/net/http_request.cpp
-In file included from ../src/net/http_request.cpp:17:
-In file included from ../third_party/curl/include/curl/curl.h:34:
-../third_party/curl/include/curl/curlbuild.h:151:9: error: unknown type name &amp;#39;socklen_t&amp;#39;; did you mean &amp;#39;locale_t&amp;#39;?
-typedef CURL_TYPEOF_CURL_SOCKLEN_T curl_socklen_t;
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~
-        locale_t
-../third_party/curl/include/curl/curlbuild.h:138:36: note: expanded from macro &amp;#39;CURL_TYPEOF_CURL_SOCKLEN_T&amp;#39;
-#define CURL_TYPEOF_CURL_SOCKLEN_T socklen_t
-                                   ^
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/_xlocale.h:30:28: note: &amp;#39;locale_t&amp;#39; declared here
-typedef struct _xlocale *               locale_t;
-                                        ^
-In file included from ../src/net/http_request.cpp:17:
-In file included from ../third_party/curl/include/curl/curl.h:35:
-../third_party/curl/include/curl/curlrules.h:173:6: error: &amp;#39;__curl_rule_04__&amp;#39; declared as an array with a negative size
-    [CurlchkszEQ(curl_socklen_t, CURL_SIZEOF_CURL_SOCKLEN_T)];
-     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../third_party/curl/include/curl/curlrules.h:132:27: note: expanded from macro &amp;#39;CurlchkszEQ&amp;#39;
-#define CurlchkszEQ(t, s) sizeof(t) == s ? 1 : -1
-                          ^~~~~~~~~~~~~~~~~~~~~~~
-2 errors generated.
-ninja: build stopped: subcommand failed.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;自分はcmakeやninjaを全く使ったことがなかったのでひたすらググったところ、下記の記載を発見。
-&lt;a href=&#34;https://gist.github.com/haxpor/b03a1e2ee46d4dc64d50f44601e249d3#gistcomment-3037701&#34;&gt;https://gist.github.com/haxpor/b03a1e2ee46d4dc64d50f44601e249d3#gistcomment-3037701&lt;/a&gt;&lt;br&gt;
-どうやらthird_party/curl/include/curl/curl.hの先頭に
-&lt;code&gt;&amp;quot;#include &amp;lt;sys/socket.h&amp;gt;&amp;quot;&lt;/code&gt;
-を追加すれば良いようなのでやってみるとビルドが通るようになった。&lt;/p&gt;
-</description>
+      <description>OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。
+基本的にはINSTALL.mdにかかれている通りにやれば良い。
+依存するものをインストール 自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。
+cmakeとninjaはHomebrewでインストール
+brew install cmake
+brew install ninja
+skiaは記載されているリンクからビルド済みのものをダウンロードし、 $HOME/deps/ に展開した。
+cmake INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、 CMakeListが無いようなエラーがでた。
+INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。
+-B buildをコマンドに追加することでcmakeが走った。
+下記が実行したコマンド
+cmake \ -DCMAKE_BUILD_TYPE=RelWithDebInfo \ -DCMAKE_OSX_ARCHITECTURES=x86_64 \ -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \ -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \ -DLAF_BACKEND=skia \ -DSKIA_DIR=$HOME/deps/skia \ -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \ -B build \ -G Ninja \ ninja cmakeが終わったら ninja aseprite でビルドが完了するようだが、ここもでもかなり詰まった。
+まず、ninja asepriteはbuildディレクトリでする。
+実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。
+しかし、そのうちエラーでタスクが進まなくなった。 エラー内容は下記。
+Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I.</description>
     </item>
     
   </channel>

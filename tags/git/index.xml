@@ -17,16 +17,12 @@
       <pubDate>Mon, 25 May 2020 16:04:46 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/git_checkout_f/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git checkout .
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;で今いるブランチの最新のCommitにもどせるが、削除したファイルなどは戻らず削除されたままとなる。&lt;br&gt;
-実際に&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git status
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;すると削除したファイルが残っていることが確認できる。&lt;/p&gt;
-&lt;p&gt;しかし、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git commit -f
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と-fをつけると、削除したファイルも含めてもとに戻すことができる。&lt;br&gt;
-（これをしらなくてCloneし直したりしていた…）&lt;/p&gt;
-</description>
+      <description>git checkout . で今いるブランチの最新のCommitにもどせるが、削除したファイルなどは戻らず削除されたままとなる。
+実際に
+git status すると削除したファイルが残っていることが確認できる。
+しかし、
+git commit -f と-fをつけると、削除したファイルも含めてもとに戻すことができる。
+（これをしらなくてCloneし直したりしていた…）</description>
     </item>
     
     <item>
@@ -35,14 +31,11 @@
       <pubDate>Mon, 18 May 2020 11:58:28 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/remove_all_branches/</guid>
-      <description>&lt;p&gt;このコマンドでmaster以外のローカルブランチをすべて削除できる。&lt;br&gt;
-(masterも削除しようとするが消せないので結果的にmasterだけ残る)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git branch | xargs git branch -D
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;また、例えば任意の文字列を含むブランチを消したい場合はgrepをかませることで実現できる。&lt;br&gt;
-たとえばfeature/~~~というブランチを全部削除する場合は下記のようにしている。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git branch | grep feature | xargs git branch -D
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ただ、これだとfeature/~~~のブランチだけでなくfeatureが含まれる名前のブランチすべてが削除されるので注意。&lt;/p&gt;
-</description>
+      <description>このコマンドでmaster以外のローカルブランチをすべて削除できる。
+(masterも削除しようとするが消せないので結果的にmasterだけ残る)
+git branch | xargs git branch -D また、例えば任意の文字列を含むブランチを消したい場合はgrepをかませることで実現できる。
+たとえばfeature/~~~というブランチを全部削除する場合は下記のようにしている。
+git branch | grep feature | xargs git branch -D ただ、これだとfeature/~~~のブランチだけでなくfeatureが含まれる名前のブランチすべてが削除されるので注意。</description>
     </item>
     
     <item>
@@ -51,15 +44,10 @@
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/solution_git_commit_amend/</guid>
-      <description>&lt;p&gt;間違えてgit commit -a &amp;ndash;amendしてしまい、
-一つ前のcommitに入れたくない変更が入ってしまった。&lt;br&gt;
-git resetで戻そうと思い、git logで履歴を確認するが
-先頭がamendしたcommitになっておりresetできなくて困った。&lt;/p&gt;
-&lt;h2 id=&#34;解決方法&#34;&gt;解決方法&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;git reflog&lt;/strong&gt;でHEADの変更履歴がみれるので、
-amendする前の状態にresetすることができる。&lt;br&gt;
-resetしたあと普通にgit commit -aすることで解決した。&lt;/p&gt;
-</description>
+      <description>間違えてgit commit -a &amp;ndash;amendしてしまい、 一つ前のcommitに入れたくない変更が入ってしまった。
+git resetで戻そうと思い、git logで履歴を確認するが 先頭がamendしたcommitになっておりresetできなくて困った。
+解決方法 git reflogでHEADの変更履歴がみれるので、 amendする前の状態にresetすることができる。
+resetしたあと普通にgit commit -aすることで解決した。</description>
     </item>
     
     <item>
@@ -68,18 +56,13 @@ resetしたあと普通にgit commit -aすることで解決した。&lt;/p&gt;
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/rebase_initial_commit/</guid>
-      <description>&lt;p&gt;Initial commitに後続のcommitを含めたかったので、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i HEAD^^^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;したところ、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;fatal: Needed a single revision
-invalid upstream &amp;#39;HEAD^^^&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と表示されてできない。&lt;/p&gt;
-&lt;p&gt;調べてみると&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i --root
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;でInitial commitを含めたrebaseができるらしい。&lt;br&gt;
-実際にやってみるといつものrebase画面にInitialCommitが表示されたので、&lt;br&gt;
-普段のrebaseと同様にsquashすることで後続のCommitを消してInitalCommitに含めることができた。&lt;/p&gt;
-</description>
+      <description>Initial commitに後続のcommitを含めたかったので、
+git rebase -i HEAD^^^ したところ、
+fatal: Needed a single revision invalid upstream &amp;#39;HEAD^^^&amp;#39; と表示されてできない。
+調べてみると
+git rebase -i --root でInitial commitを含めたrebaseができるらしい。
+実際にやってみるといつものrebase画面にInitialCommitが表示されたので、
+普段のrebaseと同様にsquashすることで後続のCommitを消してInitalCommitに含めることができた。</description>
     </item>
     
   </channel>

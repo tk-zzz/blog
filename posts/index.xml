@@ -17,38 +17,23 @@
       <pubDate>Sun, 21 Jun 2020 00:38:31 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/aseprite_to_launchpad/</guid>
-      <description>&lt;p&gt;自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので
-他のアプリのようにLaunchPadから起動できるようにした。&lt;br&gt;
-Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。&lt;br&gt;
-Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。&lt;/p&gt;
-&lt;h1 id=&#34;finderに登録する&#34;&gt;Finderに登録する&lt;/h1&gt;
-&lt;p&gt;まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。&lt;br&gt;
-まず&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;mkdir -p /Application/Aseprite.app/Contents/MacOS/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;で必要なディレクトリを作成。&lt;br&gt;
-続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。&lt;/p&gt;
-&lt;p&gt;この時点でFinderのApplicationからクリックなどで起動できるようになる。&lt;/p&gt;
-&lt;h1 id=&#34;launchpadに登録する&#34;&gt;LaunchPadに登録する&lt;/h1&gt;
-&lt;p&gt;ここまでではまだLaunchPadに表示されなかった。&lt;br&gt;
-MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。&lt;br&gt;
-これがあるとLaunchPadに表示されるようになる。&lt;br&gt;
-&lt;a href=&#34;https://github.com/haxpor/aseprite-macos-buildsh/blob/master/Aseprite.app/Contents/Info.plist&#34;&gt;asepriteをビルドしているプロジェクト&lt;/a&gt;がGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。&lt;br&gt;
-しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。&lt;/p&gt;
-&lt;p&gt;まず、アイコンに関しては&lt;a href=&#34;https://github.com/haxpor/aseprite-macos-buildsh/blob/master/Aseprite.app/Contents/Resources/applet.icns&#34;&gt;このファイル&lt;/a&gt;をダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。&lt;/p&gt;
-&lt;p&gt;Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;
-&amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/D    TDs/PropertyList-1.0.dtd&amp;#34;&amp;gt;
-    &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt;
-    &amp;lt;dict&amp;gt;
-    &amp;lt;key&amp;gt;CFBundleIconFile&amp;lt;/key&amp;gt;
-    &amp;lt;string&amp;gt;applet.icns&amp;lt;/string&amp;gt;
-    &amp;lt;key&amp;gt;CFBundleName&amp;lt;/key&amp;gt;
-    &amp;lt;string&amp;gt;Aseprite&amp;lt;/string&amp;gt;
-&amp;lt;/dict&amp;gt;
-&amp;lt;/plist&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、&lt;br&gt;
-うまく反映されないときは一度再起動をすると良いかもしれない。&lt;/p&gt;
-</description>
+      <description>自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので 他のアプリのようにLaunchPadから起動できるようにした。
+Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。
+Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。
+Finderに登録する まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。
+まず
+mkdir -p /Application/Aseprite.app/Contents/MacOS/ で必要なディレクトリを作成。
+続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。
+この時点でFinderのApplicationからクリックなどで起動できるようになる。
+LaunchPadに登録する ここまでではまだLaunchPadに表示されなかった。
+MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。
+これがあるとLaunchPadに表示されるようになる。
+asepriteをビルドしているプロジェクトがGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。
+しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。
+まず、アイコンに関してはこのファイルをダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。
+Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/D TDs/PropertyList-1.0.dtd&amp;#34;&amp;gt; &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt; &amp;lt;dict&amp;gt; &amp;lt;key&amp;gt;CFBundleIconFile&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;applet.icns&amp;lt;/string&amp;gt; &amp;lt;key&amp;gt;CFBundleName&amp;lt;/key&amp;gt; &amp;lt;string&amp;gt;Aseprite&amp;lt;/string&amp;gt; &amp;lt;/dict&amp;gt; &amp;lt;/plist&amp;gt; LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、
+うまく反映されないときは一度再起動をすると良いかもしれない。</description>
     </item>
     
     <item>
@@ -57,71 +42,22 @@ MacのアプリにはInfo.plistというファイルでアプリの情報を管�
       <pubDate>Sat, 20 Jun 2020 10:45:59 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/aseprite_build/</guid>
-      <description>&lt;p&gt;OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。&lt;/p&gt;
-&lt;p&gt;基本的には&lt;a href=&#34;https://github.com/aseprite/aseprite/blob/master/INSTALL.md&#34;&gt;INSTALL.md&lt;/a&gt;にかかれている通りにやれば良い。&lt;/p&gt;
-&lt;h4 id=&#34;依存するものをインストール&#34;&gt;依存するものをインストール&lt;/h4&gt;
-&lt;p&gt;自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。&lt;/p&gt;
-&lt;p&gt;cmakeとninjaはHomebrewでインストール&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;brew install cmake&lt;/code&gt;&lt;br&gt;
-&lt;code&gt;brew install ninja&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;skiaは記載されているリンクからビルド済みのものをダウンロードし、
-&lt;code&gt;$HOME/deps/&lt;/code&gt;
-に展開した。&lt;/p&gt;
-&lt;h4 id=&#34;cmake&#34;&gt;cmake&lt;/h4&gt;
-&lt;p&gt;INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、
-CMakeListが無いようなエラーがでた。&lt;br&gt;
-INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。&lt;br&gt;
--B buildをコマンドに追加することでcmakeが走った。&lt;/p&gt;
-&lt;p&gt;下記が実行したコマンド&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;cmake \       
-  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-  -DCMAKE_OSX_ARCHITECTURES=x86_64 \
-  -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
-  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \
-  -DLAF_BACKEND=skia \
-  -DSKIA_DIR=$HOME/deps/skia \
-  -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \
-  -B build \
-  -G Ninja \
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;ninja&#34;&gt;ninja&lt;/h4&gt;
-&lt;p&gt;cmakeが終わったら
-&lt;code&gt;ninja aseprite&lt;/code&gt;
-でビルドが完了するようだが、ここもでもかなり詰まった。&lt;br&gt;
-まず、ninja asepriteはbuildディレクトリでする。&lt;/p&gt;
-&lt;p&gt;実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。&lt;br&gt;
-しかし、そのうちエラーでタスクが進まなくなった。
-エラー内容は下記。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o
-FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o 
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I../third_party/zlib -Ithird_party/zlib -I../third_party/libpng -Ithird_party/libpng -I../third_party/libwebp/src -I../third_party/tinyxml -I../third_party/pixman/pixman -I. -I../third_party/freetype2/include -I../third_party/harfbuzz/src -I../third_party/giflib/lib -I../third_party/jpeg -Ithird_party/cmark -I../third_party/curl/include -I../third_party/simpleini -I../src -I../src/observable -I../laf -Ilaf -I../laf/third_party/stringencoders/src -stdlib=libc++ -Wall -Wno-switch -O2 -g -DNDEBUG -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.9   -Wno-sign-compare -std=c++11 -MD -MT src/net/CMakeFiles/net-lib.dir/http_request.cpp.o -MF src/net/CMakeFiles/net-lib.dir/http_request.cpp.o.d -o src/net/CMakeFiles/net-lib.dir/http_request.cpp.o -c ../src/net/http_request.cpp
-In file included from ../src/net/http_request.cpp:17:
-In file included from ../third_party/curl/include/curl/curl.h:34:
-../third_party/curl/include/curl/curlbuild.h:151:9: error: unknown type name &amp;#39;socklen_t&amp;#39;; did you mean &amp;#39;locale_t&amp;#39;?
-typedef CURL_TYPEOF_CURL_SOCKLEN_T curl_socklen_t;
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~
-        locale_t
-../third_party/curl/include/curl/curlbuild.h:138:36: note: expanded from macro &amp;#39;CURL_TYPEOF_CURL_SOCKLEN_T&amp;#39;
-#define CURL_TYPEOF_CURL_SOCKLEN_T socklen_t
-                                   ^
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/_xlocale.h:30:28: note: &amp;#39;locale_t&amp;#39; declared here
-typedef struct _xlocale *               locale_t;
-                                        ^
-In file included from ../src/net/http_request.cpp:17:
-In file included from ../third_party/curl/include/curl/curl.h:35:
-../third_party/curl/include/curl/curlrules.h:173:6: error: &amp;#39;__curl_rule_04__&amp;#39; declared as an array with a negative size
-    [CurlchkszEQ(curl_socklen_t, CURL_SIZEOF_CURL_SOCKLEN_T)];
-     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../third_party/curl/include/curl/curlrules.h:132:27: note: expanded from macro &amp;#39;CurlchkszEQ&amp;#39;
-#define CurlchkszEQ(t, s) sizeof(t) == s ? 1 : -1
-                          ^~~~~~~~~~~~~~~~~~~~~~~
-2 errors generated.
-ninja: build stopped: subcommand failed.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;自分はcmakeやninjaを全く使ったことがなかったのでひたすらググったところ、下記の記載を発見。
-&lt;a href=&#34;https://gist.github.com/haxpor/b03a1e2ee46d4dc64d50f44601e249d3#gistcomment-3037701&#34;&gt;https://gist.github.com/haxpor/b03a1e2ee46d4dc64d50f44601e249d3#gistcomment-3037701&lt;/a&gt;&lt;br&gt;
-どうやらthird_party/curl/include/curl/curl.hの先頭に
-&lt;code&gt;&amp;quot;#include &amp;lt;sys/socket.h&amp;gt;&amp;quot;&lt;/code&gt;
-を追加すれば良いようなのでやってみるとビルドが通るようになった。&lt;/p&gt;
-</description>
+      <description>OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。
+基本的にはINSTALL.mdにかかれている通りにやれば良い。
+依存するものをインストール 自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。
+cmakeとninjaはHomebrewでインストール
+brew install cmake
+brew install ninja
+skiaは記載されているリンクからビルド済みのものをダウンロードし、 $HOME/deps/ に展開した。
+cmake INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、 CMakeListが無いようなエラーがでた。
+INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。
+-B buildをコマンドに追加することでcmakeが走った。
+下記が実行したコマンド
+cmake \ -DCMAKE_BUILD_TYPE=RelWithDebInfo \ -DCMAKE_OSX_ARCHITECTURES=x86_64 \ -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \ -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \ -DLAF_BACKEND=skia \ -DSKIA_DIR=$HOME/deps/skia \ -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \ -B build \ -G Ninja \ ninja cmakeが終わったら ninja aseprite でビルドが完了するようだが、ここもでもかなり詰まった。
+まず、ninja asepriteはbuildディレクトリでする。
+実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。
+しかし、そのうちエラーでタスクが進まなくなった。 エラー内容は下記。
+Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I.</description>
     </item>
     
     <item>
@@ -130,19 +66,12 @@ ninja: build stopped: subcommand failed.
       <pubDate>Wed, 27 May 2020 01:22:34 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/android_add_module/</guid>
-      <description>&lt;p&gt;Androidでモジュールを追加するとき。
-例えば&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;modules/features/example/ui
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;というディレクトリのexample-uiモジュールを作りたいとき。&lt;/p&gt;
-&lt;p&gt;AndroidStudioの左側Projectのあたりで右クリックし&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;New &amp;gt; Module
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;するとダイアログがでてくるので&lt;/p&gt;
-&lt;p&gt;Android Library を選択し&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;Application/Library name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; example-ui  
-Module name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; :modules:features:example:ui  
-&lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;package&lt;/span&gt; name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; com.hogehoge.example.ui  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;としてFinishすることで完了。&lt;/p&gt;
-</description>
+      <description>Androidでモジュールを追加するとき。 例えば
+modules/features/example/ui というディレクトリのexample-uiモジュールを作りたいとき。
+AndroidStudioの左側Projectのあたりで右クリックし
+New &amp;gt; Module するとダイアログがでてくるので
+Android Library を選択し
+Application/Library name → example-ui Module name → :modules:features:example:ui package name → com.hogehoge.example.ui としてFinishすることで完了。</description>
     </item>
     
     <item>
@@ -151,16 +80,12 @@ Module name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; :modules:fea
       <pubDate>Mon, 25 May 2020 16:04:46 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/git_checkout_f/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git checkout .
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;で今いるブランチの最新のCommitにもどせるが、削除したファイルなどは戻らず削除されたままとなる。&lt;br&gt;
-実際に&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git status
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;すると削除したファイルが残っていることが確認できる。&lt;/p&gt;
-&lt;p&gt;しかし、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git commit -f
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と-fをつけると、削除したファイルも含めてもとに戻すことができる。&lt;br&gt;
-（これをしらなくてCloneし直したりしていた…）&lt;/p&gt;
-</description>
+      <description>git checkout . で今いるブランチの最新のCommitにもどせるが、削除したファイルなどは戻らず削除されたままとなる。
+実際に
+git status すると削除したファイルが残っていることが確認できる。
+しかし、
+git commit -f と-fをつけると、削除したファイルも含めてもとに戻すことができる。
+（これをしらなくてCloneし直したりしていた…）</description>
     </item>
     
     <item>
@@ -169,12 +94,9 @@ Module name &lt;span style=&#34;color:#f00&#34;&gt;→&lt;/span&gt; :modules:fea
       <pubDate>Fri, 22 May 2020 02:42:02 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/kotlin_list_map/</guid>
-      <description>&lt;p&gt;List#mapで各要素に処理を行い、その返却値を値に入れたlistを返却する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;resources.map {it.toGroupieItem()}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上記のようなコードで少し悩んでいたが、resourcesというlistの各要素がtoGroupieItem()で
-GroupieItemに変換されて、それが入ったあらたなListが返却されていたということだった。&lt;/p&gt;
-&lt;p&gt;参考：https://qiita.com/kiririnyo/items/aee905225902d096f7c0#map-mapindexed-mapnotnull&lt;/p&gt;
-</description>
+      <description>List#mapで各要素に処理を行い、その返却値を値に入れたlistを返却する。
+resources.map {it.toGroupieItem()} 上記のようなコードで少し悩んでいたが、resourcesというlistの各要素がtoGroupieItem()で GroupieItemに変換されて、それが入ったあらたなListが返却されていたということだった。
+参考：https://qiita.com/kiririnyo/items/aee905225902d096f7c0#map-mapindexed-mapnotnull</description>
     </item>
     
     <item>
@@ -183,15 +105,13 @@ GroupieItemに変換されて、それが入ったあらたなListが返却さ�
       <pubDate>Fri, 22 May 2020 01:47:13 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/add_google_adsense_code/</guid>
-      <description>&lt;p&gt;私が現在このブログで使っている&lt;a href=&#34;https://themes.gohugo.io/hugo-coder/&#34;&gt;Coder&lt;/a&gt;でGoogle Adsenseのコードを入れてみた。&lt;br&gt;
-テンプレートでいじるファイルは&lt;a href=&#34;https://github.com/luizdepra/hugo-coder/blob/master/layouts/_default/baseof.html#L4&#34;&gt;layout/_default/baseof.html&lt;/a&gt;。&lt;br&gt;
-このファイルの&amp;lt;head&amp;gt;の任意の場所にAdsenseのコードを貼ると、全てのページに適用された。&lt;br&gt;
-ちなみに私は一番最後の&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;    {{ hugo.Generator }}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;の下に挿入しました。&lt;/p&gt;
-&lt;p&gt;現在審査中…&lt;br&gt;
-テンプレの残っている部分が多いので審査が通らないような気がする。&lt;/p&gt;
-</description>
+      <description>私が現在このブログで使っているCoderでGoogle Adsenseのコードを入れてみた。
+テンプレートでいじるファイルはlayout/_default/baseof.html。
+このファイルの&amp;lt;head&amp;gt;の任意の場所にAdsenseのコードを貼ると、全てのページに適用された。
+ちなみに私は一番最後の
+{{ hugo.Generator }} の下に挿入しました。
+現在審査中…
+テンプレの残っている部分が多いので審査が通らないような気がする。</description>
     </item>
     
     <item>
@@ -200,16 +120,11 @@ GroupieItemに変換されて、それが入ったあらたなListが返却さ�
       <pubDate>Wed, 20 May 2020 19:05:45 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/vim_replace/</guid>
-      <description>&lt;p&gt;下記コマンドで開いているファイル内の文字列を置換できる。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/gc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ここからはオプションの解説。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;オプションをつけないと、一行の中で複数ヒットする場合でも１つ目だけが置換される。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/g
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;後ろにgを入れると一行内に複数ヒットしてもすべて置換される。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/gc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そしてヒットした文字列を一つずつ確認したい場合はcをつけます。&lt;/p&gt;
-</description>
+      <description>下記コマンドで開いているファイル内の文字列を置換できる。
+:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/gc ここからはオプションの解説。
+:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34; オプションをつけないと、一行の中で複数ヒットする場合でも１つ目だけが置換される。
+:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/g 後ろにgを入れると一行内に複数ヒットしてもすべて置換される。
+:%s/&amp;#34;置換前文字列&amp;#34;/&amp;#34;置換後文字列&amp;#34;/gc そしてヒットした文字列を一つずつ確認したい場合はcをつけます。</description>
     </item>
     
     <item>
@@ -218,14 +133,11 @@ GroupieItemに変換されて、それが入ったあらたなListが返却さ�
       <pubDate>Mon, 18 May 2020 11:58:28 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/remove_all_branches/</guid>
-      <description>&lt;p&gt;このコマンドでmaster以外のローカルブランチをすべて削除できる。&lt;br&gt;
-(masterも削除しようとするが消せないので結果的にmasterだけ残る)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git branch | xargs git branch -D
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;また、例えば任意の文字列を含むブランチを消したい場合はgrepをかませることで実現できる。&lt;br&gt;
-たとえばfeature/~~~というブランチを全部削除する場合は下記のようにしている。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git branch | grep feature | xargs git branch -D
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ただ、これだとfeature/~~~のブランチだけでなくfeatureが含まれる名前のブランチすべてが削除されるので注意。&lt;/p&gt;
-</description>
+      <description>このコマンドでmaster以外のローカルブランチをすべて削除できる。
+(masterも削除しようとするが消せないので結果的にmasterだけ残る)
+git branch | xargs git branch -D また、例えば任意の文字列を含むブランチを消したい場合はgrepをかませることで実現できる。
+たとえばfeature/~~~というブランチを全部削除する場合は下記のようにしている。
+git branch | grep feature | xargs git branch -D ただ、これだとfeature/~~~のブランチだけでなくfeatureが含まれる名前のブランチすべてが削除されるので注意。</description>
     </item>
     
     <item>
@@ -234,14 +146,11 @@ GroupieItemに変換されて、それが入ったあらたなListが返却さ�
       <pubDate>Wed, 15 Apr 2020 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/fragment_oncreateview_onviewcreate/</guid>
-      <description>&lt;p&gt;FragmentのonCreateViewとonViewCreatedの違い。&lt;br&gt;
-あまり意識をしていなかったが、ドキュメントに下記の記載がある。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;It is recommended to only inflate the layout in this method and move logic that operates on the returned View to onViewCreated(View, Bundle).&lt;br&gt;
-&lt;a href=&#34;https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview&#34;&gt;https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;つまり、onCreteViewではレイアウトのinflateだけを行い、他の処理はonViewCreatedで行うことが推奨されている。&lt;/p&gt;
-</description>
+      <description>FragmentのonCreateViewとonViewCreatedの違い。
+あまり意識をしていなかったが、ドキュメントに下記の記載がある。
+ It is recommended to only inflate the layout in this method and move logic that operates on the returned View to onViewCreated(View, Bundle).
+https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html#oncreateview
+ つまり、onCreteViewではレイアウトのinflateだけを行い、他の処理はonViewCreatedで行うことが推奨されている。</description>
     </item>
     
     <item>
@@ -250,15 +159,10 @@ GroupieItemに変換されて、それが入ったあらたなListが返却さ�
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/solution_git_commit_amend/</guid>
-      <description>&lt;p&gt;間違えてgit commit -a &amp;ndash;amendしてしまい、
-一つ前のcommitに入れたくない変更が入ってしまった。&lt;br&gt;
-git resetで戻そうと思い、git logで履歴を確認するが
-先頭がamendしたcommitになっておりresetできなくて困った。&lt;/p&gt;
-&lt;h2 id=&#34;解決方法&#34;&gt;解決方法&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;git reflog&lt;/strong&gt;でHEADの変更履歴がみれるので、
-amendする前の状態にresetすることができる。&lt;br&gt;
-resetしたあと普通にgit commit -aすることで解決した。&lt;/p&gt;
-</description>
+      <description>間違えてgit commit -a &amp;ndash;amendしてしまい、 一つ前のcommitに入れたくない変更が入ってしまった。
+git resetで戻そうと思い、git logで履歴を確認するが 先頭がamendしたcommitになっておりresetできなくて困った。
+解決方法 git reflogでHEADの変更履歴がみれるので、 amendする前の状態にresetすることができる。
+resetしたあと普通にgit commit -aすることで解決した。</description>
     </item>
     
     <item>
@@ -267,15 +171,12 @@ resetしたあと普通にgit commit -aすることで解決した。&lt;/p&gt;
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/android_studio_java_location/</guid>
-      <description>&lt;p&gt;ターミナルからgradleビルドをするときにandroid studioで使っているものと同じものを使いたいと思い、&lt;br&gt;
-Preferenceあたりを探したがなかなか見つからなかったのでメモ。&lt;/p&gt;
-&lt;p&gt;結論としてはAndroidStudioのPreferenceではなく&lt;br&gt;
-&lt;strong&gt;File &amp;gt; Project Structure &amp;gt; SDK Location&lt;/strong&gt;
-のJDK locationに見つけた。&lt;br&gt;
-下記のように.zshrcに追加した。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-zsh:.zshrc&#34; data-lang=&#34;zsh:.zshrc&#34;&gt;&lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;export&lt;/span&gt; JAVA_HOME=/Applications/Android&lt;span style=&#34;color:#0ff;font-weight:bold&#34;&gt;\ &lt;/span&gt;Studio.app/Contents/jre/jdk/Contents/Home
-&lt;span style=&#34;color:#fff;font-weight:bold&#34;&gt;export&lt;/span&gt; PATH=$PATH:$JAVA_HOME/bin
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <description>ターミナルからgradleビルドをするときにandroid studioで使っているものと同じものを使いたいと思い、
+Preferenceあたりを探したがなかなか見つからなかったのでメモ。
+結論としてはAndroidStudioのPreferenceではなく
+File &amp;gt; Project Structure &amp;gt; SDK Location のJDK locationに見つけた。
+下記のように.zshrcに追加した。
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home export PATH=$PATH:$JAVA_HOME/bin </description>
     </item>
     
     <item>
@@ -284,18 +185,13 @@ Preferenceあたりを探したがなかなか見つからなかったのでメ�
       <pubDate>Fri, 10 Jan 2020 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2020/rebase_initial_commit/</guid>
-      <description>&lt;p&gt;Initial commitに後続のcommitを含めたかったので、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i HEAD^^^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;したところ、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;fatal: Needed a single revision
-invalid upstream &amp;#39;HEAD^^^&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と表示されてできない。&lt;/p&gt;
-&lt;p&gt;調べてみると&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git rebase -i --root
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;でInitial commitを含めたrebaseができるらしい。&lt;br&gt;
-実際にやってみるといつものrebase画面にInitialCommitが表示されたので、&lt;br&gt;
-普段のrebaseと同様にsquashすることで後続のCommitを消してInitalCommitに含めることができた。&lt;/p&gt;
-</description>
+      <description>Initial commitに後続のcommitを含めたかったので、
+git rebase -i HEAD^^^ したところ、
+fatal: Needed a single revision invalid upstream &amp;#39;HEAD^^^&amp;#39; と表示されてできない。
+調べてみると
+git rebase -i --root でInitial commitを含めたrebaseができるらしい。
+実際にやってみるといつものrebase画面にInitialCommitが表示されたので、
+普段のrebaseと同様にsquashすることで後続のCommitを消してInitalCommitに含めることができた。</description>
     </item>
     
     <item>
@@ -304,10 +200,9 @@ invalid upstream &amp;#39;HEAD^^^&amp;#39;
       <pubDate>Thu, 19 Dec 2019 00:00:00 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/posts/2019/ubuntu_bluetooth/</guid>
-      <description>&lt;p&gt;Ubuntu18.04をノートPCに入れて使っているが、スリープ解除後にbluetoothが効かなくなるときがある。&lt;br&gt;
-とりあえず下記コマンドでサービスをリスタートすると再びBluetoothをONできるようになる。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;systemctl restart bluetooth.service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <description>Ubuntu18.04をノートPCに入れて使っているが、スリープ解除後にbluetoothが効かなくなるときがある。
+とりあえず下記コマンドでサービスをリスタートすると再びBluetoothをONできるようになる。
+systemctl restart bluetooth.service </description>
     </item>
     
   </channel>
