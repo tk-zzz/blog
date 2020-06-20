@@ -84,7 +84,7 @@ Application/Library name → example-ui Module name → :modules:features:exampl
 実際に
 git status すると削除したファイルが残っていることが確認できる。
 しかし、
-git commit -f と-fをつけると、削除したファイルも含めてもとに戻すことができる。
+git checkout -f と-fをつけると、削除したファイルも含めてもとに戻すことができる。
 （これをしらなくてCloneし直したりしていた…）</description>
     </item>
     
