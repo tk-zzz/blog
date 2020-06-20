@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="tk-zzz">
+    <meta name="description" content="OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。
+基本的にはINSTALL.mdにかかれている通りにやれば良い。
+依存するものをインストール 自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。
+cmakeとninjaはHomebrewでインストール
+brew install cmake
+brew install ninja
+skiaは記載されているリンクからビルド済みのものをダウンロードし、 $HOME/deps/ に展開した。
+cmake INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、 CMakeListが無いようなエラーがでた。
+INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。
+-B buildをコマンドに追加することでcmakeが走った。
+下記が実行したコマンド
+cmake \ -DCMAKE_BUILD_TYPE=RelWithDebInfo \ -DCMAKE_OSX_ARCHITECTURES=x86_64 \ -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \ -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \ -DLAF_BACKEND=skia \ -DSKIA_DIR=$HOME/deps/skia \ -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \ -B build \ -G Ninja \ ninja cmakeが終わったら ninja aseprite でビルドが完了するようだが、ここもでもかなり詰まった。
+まず、ninja asepriteはbuildディレクトリでする。
+実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。
+しかし、そのうちエラーでタスクが進まなくなった。 エラー内容は下記。
+Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c&#43;&#43; -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I.">
+    <meta name="keywords" content="android,kotlin,blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MacでAsepriteをビルド"/>
+<meta name="twitter:description" content="OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。
+基本的にはINSTALL.mdにかかれている通りにやれば良い。
+依存するものをインストール 自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。
+cmakeとninjaはHomebrewでインストール
+brew install cmake
+brew install ninja
+skiaは記載されているリンクからビルド済みのものをダウンロードし、 $HOME/deps/ に展開した。
+cmake INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、 CMakeListが無いようなエラーがでた。
+INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。
+-B buildをコマンドに追加することでcmakeが走った。
+下記が実行したコマンド
+cmake \ -DCMAKE_BUILD_TYPE=RelWithDebInfo \ -DCMAKE_OSX_ARCHITECTURES=x86_64 \ -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \ -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \ -DLAF_BACKEND=skia \ -DSKIA_DIR=$HOME/deps/skia \ -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \ -B build \ -G Ninja \ ninja cmakeが終わったら ninja aseprite でビルドが完了するようだが、ここもでもかなり詰まった。
+まず、ninja asepriteはbuildディレクトリでする。
+実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。
+しかし、そのうちエラーでタスクが進まなくなった。 エラー内容は下記。
+Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c&#43;&#43; -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I."/>
+
+    <meta property="og:title" content="MacでAsepriteをビルド" />
+<meta property="og:description" content="OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。
+基本的にはINSTALL.mdにかかれている通りにやれば良い。
+依存するものをインストール 自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。
+cmakeとninjaはHomebrewでインストール
+brew install cmake
+brew install ninja
+skiaは記載されているリンクからビルド済みのものをダウンロードし、 $HOME/deps/ に展開した。
+cmake INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、 CMakeListが無いようなエラーがでた。
+INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。
+-B buildをコマンドに追加することでcmakeが走った。
+下記が実行したコマンド
+cmake \ -DCMAKE_BUILD_TYPE=RelWithDebInfo \ -DCMAKE_OSX_ARCHITECTURES=x86_64 \ -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \ -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \ -DLAF_BACKEND=skia \ -DSKIA_DIR=$HOME/deps/skia \ -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \ -B build \ -G Ninja \ ninja cmakeが終わったら ninja aseprite でビルドが完了するようだが、ここもでもかなり詰まった。
+まず、ninja asepriteはbuildディレクトリでする。
+実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。
+しかし、そのうちエラーでタスクが進まなくなった。 エラー内容は下記。
+Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c&#43;&#43; -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tk-zzz.github.io/posts/2020/aseprite_build/" />
+<meta property="article:published_time" content="2020-06-20T10:45:59+09:00" />
+<meta property="article:modified_time" content="2020-06-20T10:45:59+09:00" />
+
+
+    
+      <base href="https://tk-zzz.github.io/posts/2020/aseprite_build/">
+    
+    <title>
+  MacでAsepriteをビルド · ruin (new)
+</title>
+
+    
+      <link rel="canonical" href="https://tk-zzz.github.io/posts/2020/aseprite_build/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://tk-zzz.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://tk-zzz.github.io/css/coder-dark.min.e78e80fc3a585a4d1c8fc7f58623b6ff852411e38431a9cd1792877ecaa160f6.css" integrity="sha256-546A/DpYWk0cj8f1hiO2/4UkEeOEManNF5KHfsqhYPY=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://tk-zzz.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://tk-zzz.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.70.0" />
+    <script data-ad-client="ca-pub-3564313575417722" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://tk-zzz.github.io/">
+      ruin (new)
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://tk-zzz.github.io/posts/">Blog</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">MacでAsepriteをビルド</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-06-20T10:45:59&#43;09:00'>
+                2020/6/20
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。</p>
+<p>基本的には<a href="https://github.com/aseprite/aseprite/blob/master/INSTALL.md">INSTALL.md</a>にかかれている通りにやれば良い。</p>
+<h4 id="依存するものをインストール">依存するものをインストール</h4>
+<p>自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。</p>
+<p>cmakeとninjaはHomebrewでインストール</p>
+<p><code>brew install cmake</code><br>
+<code>brew install ninja</code></p>
+<p>skiaは記載されているリンクからビルド済みのものをダウンロードし、
+<code>$HOME/deps/</code>
+に展開した。</p>
+<h4 id="cmake">cmake</h4>
+<p>INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、
+CMakeListが無いようなエラーがでた。<br>
+INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。<br>
+-B buildをコマンドに追加することでcmakeが走った。</p>
+<p>下記が実行したコマンド</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">cmake \       
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  -DCMAKE_OSX_ARCHITECTURES=x86_64 \
+  -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \
+  -DLAF_BACKEND=skia \
+  -DSKIA_DIR=$HOME/deps/skia \
+  -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \
+  -B build \
+  -G Ninja \
+</code></pre></div><h4 id="ninja">ninja</h4>
+<p>cmakeが終わったら
+<code>ninja aseprite</code>
+でビルドが完了するようだが、ここもでもかなり詰まった。<br>
+まず、ninja asepriteはbuildディレクトリでする。</p>
+<p>実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。<br>
+しかし、そのうちエラーでタスクが進まなくなった。
+エラー内容は下記。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o
+FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o 
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I../third_party/zlib -Ithird_party/zlib -I../third_party/libpng -Ithird_party/libpng -I../third_party/libwebp/src -I../third_party/tinyxml -I../third_party/pixman/pixman -I. -I../third_party/freetype2/include -I../third_party/harfbuzz/src -I../third_party/giflib/lib -I../third_party/jpeg -Ithird_party/cmark -I../third_party/curl/include -I../third_party/simpleini -I../src -I../src/observable -I../laf -Ilaf -I../laf/third_party/stringencoders/src -stdlib=libc++ -Wall -Wno-switch -O2 -g -DNDEBUG -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.9   -Wno-sign-compare -std=c++11 -MD -MT src/net/CMakeFiles/net-lib.dir/http_request.cpp.o -MF src/net/CMakeFiles/net-lib.dir/http_request.cpp.o.d -o src/net/CMakeFiles/net-lib.dir/http_request.cpp.o -c ../src/net/http_request.cpp
+In file included from ../src/net/http_request.cpp:17:
+In file included from ../third_party/curl/include/curl/curl.h:34:
+../third_party/curl/include/curl/curlbuild.h:151:9: error: unknown type name &#39;socklen_t&#39;; did you mean &#39;locale_t&#39;?
+typedef CURL_TYPEOF_CURL_SOCKLEN_T curl_socklen_t;
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+        locale_t
+../third_party/curl/include/curl/curlbuild.h:138:36: note: expanded from macro &#39;CURL_TYPEOF_CURL_SOCKLEN_T&#39;
+#define CURL_TYPEOF_CURL_SOCKLEN_T socklen_t
+                                   ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/_xlocale.h:30:28: note: &#39;locale_t&#39; declared here
+typedef struct _xlocale *               locale_t;
+                                        ^
+In file included from ../src/net/http_request.cpp:17:
+In file included from ../third_party/curl/include/curl/curl.h:35:
+../third_party/curl/include/curl/curlrules.h:173:6: error: &#39;__curl_rule_04__&#39; declared as an array with a negative size
+    [CurlchkszEQ(curl_socklen_t, CURL_SIZEOF_CURL_SOCKLEN_T)];
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../third_party/curl/include/curl/curlrules.h:132:27: note: expanded from macro &#39;CurlchkszEQ&#39;
+#define CurlchkszEQ(t, s) sizeof(t) == s ? 1 : -1
+                          ^~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+ninja: build stopped: subcommand failed.
+</code></pre></div><p>自分はcmakeやninjaを全く使ったことがなかったのでひたすらググったところ、下記の記載を発見。
+<a href="https://gist.github.com/haxpor/b03a1e2ee46d4dc64d50f44601e249d3#gistcomment-3037701">https://gist.github.com/haxpor/b03a1e2ee46d4dc64d50f44601e249d3#gistcomment-3037701</a><br>
+どうやらthird_party/curl/include/curl/curl.hの先頭に
+<code>&quot;#include &lt;sys/socket.h&gt;&quot;</code>
+を追加すれば良いようなのでやってみるとビルドが通るようになった。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         tk-zzz 
+      
+      
+      
+        
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-166936168-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  </body>
+
+</html>

@@ -6,10 +6,83 @@
     <description>Recent content on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 May 2020 01:22:34 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2020 10:45:59 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MacでAsepriteをビルド</title>
+      <link>https://tk-zzz.github.io/posts/2020/aseprite_build/</link>
+      <pubDate>Sat, 20 Jun 2020 10:45:59 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/aseprite_build/</guid>
+      <description>&lt;p&gt;OSSのドット絵制作ツールAsepriteをビルドしたときに躓いたところをメモ。&lt;/p&gt;
+&lt;p&gt;基本的には&lt;a href=&#34;https://github.com/aseprite/aseprite/blob/master/INSTALL.md&#34;&gt;INSTALL.md&lt;/a&gt;にかかれている通りにやれば良い。&lt;/p&gt;
+&lt;h4 id=&#34;依存するものをインストール&#34;&gt;依存するものをインストール&lt;/h4&gt;
+&lt;p&gt;自分の環境ではcmake ninja skiaが入っていなかったためそれぞれインストールした。&lt;/p&gt;
+&lt;p&gt;cmakeとninjaはHomebrewでインストール&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;brew install cmake&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;brew install ninja&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;skiaは記載されているリンクからビルド済みのものをダウンロードし、
+&lt;code&gt;$HOME/deps/&lt;/code&gt;
+に展開した。&lt;/p&gt;
+&lt;h4 id=&#34;cmake&#34;&gt;cmake&lt;/h4&gt;
+&lt;p&gt;INSTALL.mdのMacのところにかかれている通りにcmakeのコマンドを打つと、
+CMakeListが無いようなエラーがでた。&lt;br&gt;
+INSTALL.mdではbuildディレクトリを作って移動するように書かれているが、このせいで直下にCMakeListが無い。&lt;br&gt;
+-B buildをコマンドに追加することでcmakeが走った。&lt;/p&gt;
+&lt;p&gt;下記が実行したコマンド&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;cmake \       
+  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+  -DCMAKE_OSX_ARCHITECTURES=x86_64 \
+  -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+  -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \
+  -DLAF_BACKEND=skia \
+  -DSKIA_DIR=$HOME/deps/skia \
+  -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \
+  -B build \
+  -G Ninja \
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;ninja&#34;&gt;ninja&lt;/h4&gt;
+&lt;p&gt;cmakeが終わったら
+&lt;code&gt;ninja aseprite&lt;/code&gt;
+でビルドが完了するようだが、ここもでもかなり詰まった。&lt;br&gt;
+まず、ninja asepriteはbuildディレクトリでする。&lt;/p&gt;
+&lt;p&gt;実行するとエラーが出るが、再びコマンドを叩くとタスクは進んでいく。&lt;br&gt;
+しかし、そのうちエラーでタスクが進まなくなった。
+エラー内容は下記。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;Building CXX object src/net/CMakeFiles/net-lib.dir/http_request.cpp.o
+FAILED: src/net/CMakeFiles/net-lib.dir/http_request.cpp.o 
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -DCMARK_STATIC_DEFINE -DCURL_STATICLIB -DENABLE_DATA_RECOVERY -DENABLE_NEWS -DENABLE_SAVE -DENABLE_SCRIPTING -DENABLE_UI -DENABLE_UPDATER -DHAVE_CONFIG_H -DLAF_SKIA -DNDEBUG -DPNG_NO_MMX_CODE -I../third_party/zlib -Ithird_party/zlib -I../third_party/libpng -Ithird_party/libpng -I../third_party/libwebp/src -I../third_party/tinyxml -I../third_party/pixman/pixman -I. -I../third_party/freetype2/include -I../third_party/harfbuzz/src -I../third_party/giflib/lib -I../third_party/jpeg -Ithird_party/cmark -I../third_party/curl/include -I../third_party/simpleini -I../src -I../src/observable -I../laf -Ilaf -I../laf/third_party/stringencoders/src -stdlib=libc++ -Wall -Wno-switch -O2 -g -DNDEBUG -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.9   -Wno-sign-compare -std=c++11 -MD -MT src/net/CMakeFiles/net-lib.dir/http_request.cpp.o -MF src/net/CMakeFiles/net-lib.dir/http_request.cpp.o.d -o src/net/CMakeFiles/net-lib.dir/http_request.cpp.o -c ../src/net/http_request.cpp
+In file included from ../src/net/http_request.cpp:17:
+In file included from ../third_party/curl/include/curl/curl.h:34:
+../third_party/curl/include/curl/curlbuild.h:151:9: error: unknown type name &amp;#39;socklen_t&amp;#39;; did you mean &amp;#39;locale_t&amp;#39;?
+typedef CURL_TYPEOF_CURL_SOCKLEN_T curl_socklen_t;
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+        locale_t
+../third_party/curl/include/curl/curlbuild.h:138:36: note: expanded from macro &amp;#39;CURL_TYPEOF_CURL_SOCKLEN_T&amp;#39;
+#define CURL_TYPEOF_CURL_SOCKLEN_T socklen_t
+                                   ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/_xlocale.h:30:28: note: &amp;#39;locale_t&amp;#39; declared here
+typedef struct _xlocale *               locale_t;
+                                        ^
+In file included from ../src/net/http_request.cpp:17:
+In file included from ../third_party/curl/include/curl/curl.h:35:
+../third_party/curl/include/curl/curlrules.h:173:6: error: &amp;#39;__curl_rule_04__&amp;#39; declared as an array with a negative size
+    [CurlchkszEQ(curl_socklen_t, CURL_SIZEOF_CURL_SOCKLEN_T)];
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../third_party/curl/include/curl/curlrules.h:132:27: note: expanded from macro &amp;#39;CurlchkszEQ&amp;#39;
+#define CurlchkszEQ(t, s) sizeof(t) == s ? 1 : -1
+                          ^~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+ninja: build stopped: subcommand failed.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;自分はcmakeやninjaを全く使ったことがなかったのでひたすらググったところ、下記の記載を発見。
+&lt;a href=&#34;https://gist.github.com/haxpor/b03a1e2ee46d4dc64d50f44601e249d3#gistcomment-3037701&#34;&gt;https://gist.github.com/haxpor/b03a1e2ee46d4dc64d50f44601e249d3#gistcomment-3037701&lt;/a&gt;&lt;br&gt;
+どうやらthird_party/curl/include/curl/curl.hの先頭に
+&lt;code&gt;&amp;quot;#include &amp;lt;sys/socket.h&amp;gt;&amp;quot;&lt;/code&gt;
+を追加すれば良いようなのでやってみるとビルドが通るようになった。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>【Android】モジュール追加 私はこんな風にしてます</title>
