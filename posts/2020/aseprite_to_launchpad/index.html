@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="tk-zzz">
+    <meta name="description" content="自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので 他のアプリのようにLaunchPadから起動できるようにした。
+Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。
+Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。
+Finderに登録する まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。
+まず
+mkdir -p /Application/Aseprite.app/Contents/MacOS/ で必要なディレクトリを作成。
+続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。
+この時点でFinderのApplicationからクリックなどで起動できるようになる。
+LaunchPadに登録する ここまでではまだLaunchPadに表示されなかった。
+MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。
+これがあるとLaunchPadに表示されるようになる。
+asepriteをビルドしているプロジェクトがGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。
+しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。
+まず、アイコンに関してはこのファイルをダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。
+Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/D TDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; &lt;dict&gt; &lt;key&gt;CFBundleIconFile&lt;/key&gt; &lt;string&gt;applet.icns&lt;/string&gt; &lt;key&gt;CFBundleName&lt;/key&gt; &lt;string&gt;Aseprite&lt;/string&gt; &lt;/dict&gt; &lt;/plist&gt; LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、
+うまく反映されないときは一度再起動をすると良いかもしれない。">
+    <meta name="keywords" content="android,kotlin,blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AsepriteをMacのLaunchPadに登録する方法"/>
+<meta name="twitter:description" content="自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので 他のアプリのようにLaunchPadから起動できるようにした。
+Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。
+Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。
+Finderに登録する まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。
+まず
+mkdir -p /Application/Aseprite.app/Contents/MacOS/ で必要なディレクトリを作成。
+続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。
+この時点でFinderのApplicationからクリックなどで起動できるようになる。
+LaunchPadに登録する ここまでではまだLaunchPadに表示されなかった。
+MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。
+これがあるとLaunchPadに表示されるようになる。
+asepriteをビルドしているプロジェクトがGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。
+しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。
+まず、アイコンに関してはこのファイルをダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。
+Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/D TDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; &lt;dict&gt; &lt;key&gt;CFBundleIconFile&lt;/key&gt; &lt;string&gt;applet.icns&lt;/string&gt; &lt;key&gt;CFBundleName&lt;/key&gt; &lt;string&gt;Aseprite&lt;/string&gt; &lt;/dict&gt; &lt;/plist&gt; LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、
+うまく反映されないときは一度再起動をすると良いかもしれない。"/>
+
+    <meta property="og:title" content="AsepriteをMacのLaunchPadに登録する方法" />
+<meta property="og:description" content="自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので 他のアプリのようにLaunchPadから起動できるようにした。
+Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。
+Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。
+Finderに登録する まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。
+まず
+mkdir -p /Application/Aseprite.app/Contents/MacOS/ で必要なディレクトリを作成。
+続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。
+この時点でFinderのApplicationからクリックなどで起動できるようになる。
+LaunchPadに登録する ここまでではまだLaunchPadに表示されなかった。
+MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。
+これがあるとLaunchPadに表示されるようになる。
+asepriteをビルドしているプロジェクトがGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。
+しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。
+まず、アイコンに関してはこのファイルをダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。
+Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/D TDs/PropertyList-1.0.dtd&#34;&gt; &lt;plist version=&#34;1.0&#34;&gt; &lt;dict&gt; &lt;key&gt;CFBundleIconFile&lt;/key&gt; &lt;string&gt;applet.icns&lt;/string&gt; &lt;key&gt;CFBundleName&lt;/key&gt; &lt;string&gt;Aseprite&lt;/string&gt; &lt;/dict&gt; &lt;/plist&gt; LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、
+うまく反映されないときは一度再起動をすると良いかもしれない。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tk-zzz.github.io/posts/2020/aseprite_to_launchpad/" />
+<meta property="article:published_time" content="2020-06-21T00:38:31+09:00" />
+<meta property="article:modified_time" content="2020-06-21T00:38:31+09:00" />
+
+
+    
+      <base href="https://tk-zzz.github.io/posts/2020/aseprite_to_launchpad/">
+    
+    <title>
+  AsepriteをMacのLaunchPadに登録する方法 · ruin (new)
+</title>
+
+    
+      <link rel="canonical" href="https://tk-zzz.github.io/posts/2020/aseprite_to_launchpad/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://tk-zzz.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://tk-zzz.github.io/css/coder-dark.min.e78e80fc3a585a4d1c8fc7f58623b6ff852411e38431a9cd1792877ecaa160f6.css" integrity="sha256-546A/DpYWk0cj8f1hiO2/4UkEeOEManNF5KHfsqhYPY=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://tk-zzz.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://tk-zzz.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.70.0" />
+    <script data-ad-client="ca-pub-3564313575417722" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://tk-zzz.github.io/">
+      ruin (new)
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://tk-zzz.github.io/posts/">Blog</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">AsepriteをMacのLaunchPadに登録する方法</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-06-21T00:38:31&#43;09:00'>
+                2020/6/21
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1-minute read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://tk-zzz.github.io/tags/aseprite/">Aseprite</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので
+他のアプリのようにLaunchPadから起動できるようにした。<br>
+Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。<br>
+Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。</p>
+<h1 id="finderに登録する">Finderに登録する</h1>
+<p>まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。<br>
+まず</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mkdir -p /Application/Aseprite.app/Contents/MacOS/
+</code></pre></div><p>で必要なディレクトリを作成。<br>
+続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。</p>
+<p>この時点でFinderのApplicationからクリックなどで起動できるようになる。</p>
+<h1 id="launchpadに登録する">LaunchPadに登録する</h1>
+<p>ここまでではまだLaunchPadに表示されなかった。<br>
+MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。<br>
+これがあるとLaunchPadに表示されるようになる。<br>
+<a href="https://github.com/haxpor/aseprite-macos-buildsh/blob/master/Aseprite.app/Contents/Info.plist">asepriteをビルドしているプロジェクト</a>がGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。<br>
+しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。</p>
+<p>まず、アイコンに関しては<a href="https://github.com/haxpor/aseprite-macos-buildsh/blob/master/Aseprite.app/Contents/Resources/applet.icns">このファイル</a>をダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。</p>
+<p>Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/D    TDs/PropertyList-1.0.dtd&#34;&gt;
+    &lt;plist version=&#34;1.0&#34;&gt;
+    &lt;dict&gt;
+    &lt;key&gt;CFBundleIconFile&lt;/key&gt;
+    &lt;string&gt;applet.icns&lt;/string&gt;
+    &lt;key&gt;CFBundleName&lt;/key&gt;
+    &lt;string&gt;Aseprite&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></div><p>LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、<br>
+うまく反映されないときは一度再起動をすると良いかもしれない。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         tk-zzz 
+      
+      
+      
+        
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-166936168-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  </body>
+
+</html>

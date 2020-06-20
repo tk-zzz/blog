@@ -6,10 +6,50 @@
     <description>Recent content on ruin (new)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 20 Jun 2020 10:45:59 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2020 00:38:31 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AsepriteをMacのLaunchPadに登録する方法</title>
+      <link>https://tk-zzz.github.io/posts/2020/aseprite_to_launchpad/</link>
+      <pubDate>Sun, 21 Jun 2020 00:38:31 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/aseprite_to_launchpad/</guid>
+      <description>&lt;p&gt;自分でビルドしたAsepriteを起動するとき、いちいちCUIでコマンドを叩くのが面倒なので
+他のアプリのようにLaunchPadから起動できるようにした。&lt;br&gt;
+Macアプリの開発経験は無いので、こうやったらとりあえずうまく動いてるよ的なメモ。&lt;br&gt;
+Aseprite以外でも自力でビルドしたアプリを同じ方法で登録できるはず。&lt;/p&gt;
+&lt;h1 id=&#34;finderに登録する&#34;&gt;Finderに登録する&lt;/h1&gt;
+&lt;p&gt;まずはほかアプリのようにFinderのアプリケーションから起動できるようにする。&lt;br&gt;
+まず&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;mkdir -p /Application/Aseprite.app/Contents/MacOS/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;で必要なディレクトリを作成。&lt;br&gt;
+続いてMacOSディレクトリ配下にAsepriteのbuildディレクトリ配下に生成されたものをすべて移動する。&lt;/p&gt;
+&lt;p&gt;この時点でFinderのApplicationからクリックなどで起動できるようになる。&lt;/p&gt;
+&lt;h1 id=&#34;launchpadに登録する&#34;&gt;LaunchPadに登録する&lt;/h1&gt;
+&lt;p&gt;ここまでではまだLaunchPadに表示されなかった。&lt;br&gt;
+MacのアプリにはInfo.plistというファイルでアプリの情報を管理しているようだ。&lt;br&gt;
+これがあるとLaunchPadに表示されるようになる。&lt;br&gt;
+&lt;a href=&#34;https://github.com/haxpor/aseprite-macos-buildsh/blob/master/Aseprite.app/Contents/Info.plist&#34;&gt;asepriteをビルドしているプロジェクト&lt;/a&gt;がGithubにあったので、これをまずコピーしてみたらこの時点でLaunchPadに表示されるようになった。&lt;br&gt;
+しかし、クリックするとアプリが起動しなくなったし、アイコンもデフォルトのもののままだ。&lt;/p&gt;
+&lt;p&gt;まず、アイコンに関しては&lt;a href=&#34;https://github.com/haxpor/aseprite-macos-buildsh/blob/master/Aseprite.app/Contents/Resources/applet.icns&#34;&gt;このファイル&lt;/a&gt;をダウンロードして、Contents/Resourcesディレクトリを作成しそこに追加した。&lt;/p&gt;
+&lt;p&gt;Info.plistについては、自分はアイコンを表示したいだけなので下記のように内容を削除していったらアイコンが表示され、アプリもクリックで起動できるようになった。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;
+&amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/D    TDs/PropertyList-1.0.dtd&amp;#34;&amp;gt;
+    &amp;lt;plist version=&amp;#34;1.0&amp;#34;&amp;gt;
+    &amp;lt;dict&amp;gt;
+    &amp;lt;key&amp;gt;CFBundleIconFile&amp;lt;/key&amp;gt;
+    &amp;lt;string&amp;gt;applet.icns&amp;lt;/string&amp;gt;
+    &amp;lt;key&amp;gt;CFBundleName&amp;lt;/key&amp;gt;
+    &amp;lt;string&amp;gt;Aseprite&amp;lt;/string&amp;gt;
+&amp;lt;/dict&amp;gt;
+&amp;lt;/plist&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;LaunchPadに表示されるアイコンはInfo.plistの情報を変えるとすぐに反映されるわけではないようなので、&lt;br&gt;
+うまく反映されないときは一度再起動をすると良いかもしれない。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>MacでAsepriteをビルド</title>
