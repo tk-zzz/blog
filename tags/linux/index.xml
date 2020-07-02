@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on ruin (new)</title>
+    <link>https://tk-zzz.github.io/tags/linux/</link>
+    <description>Recent content in Linux on ruin (new)</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Jul 2020 00:41:20 +0900</lastBuildDate>
+    
+	<atom:link href="https://tk-zzz.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【Linux】shredでUSB接続したSSDを完全消去</title>
+      <link>https://tk-zzz.github.io/posts/2020/shred_sub/</link>
+      <pubDate>Fri, 03 Jul 2020 00:41:20 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/shred_sub/</guid>
+      <description>PCを売却する前に、Linuxコマンドのshredを使って消去したメモ。
+買取業者などではなくフリマアプリで売れたので、データを復元されないように消去する方法を調べていた。
+調べた中でLinuxコマンドのshredが手軽にできそうだったので試してみた。
+このコマンドはストレージを完全に消去してしまうので、 参考にする場合はよく確認しながら自己責任でお願いします。
+責任は一切負いません。
+手順１ 売却するPCのSSDを取り出し、USB接続できるケースで別のLinux機に接続。
+手順２ fdisk -l で接続したUSBストレージのデバイス名を探す。
+つないでいるストレージの容量や、非接続時のコマンドの結果から /dev/sdc と判明。
+手順３ shred -n 5 -v -z /dev/sdc を実行。
+オプションの-nはshredをかける回数。-v は現在の進捗がコンソールに表示されるようになる。
+-zは最後にすべての領域に0を書き込んで終わるようです。
+256GBのSSDで実行しましたが、全て完了するまで3時間程度かかっていたように思います。</description>
+    </item>
+    
+  </channel>
+</rss>
