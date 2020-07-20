@@ -6,10 +6,21 @@
     <description>Recent content in Android on ruin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 27 May 2020 01:22:34 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2020 01:46:47 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【Android】 Dialogの外をタップしたりバックキーで閉じなくする方法</title>
+      <link>https://tk-zzz.github.io/posts/2020/android_dialog_cancelable/</link>
+      <pubDate>Tue, 21 Jul 2020 01:46:47 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/android_dialog_cancelable/</guid>
+      <description>通常ダイアログの外をタップしたり、バックキーでダイアログは閉じてしまう。
+しかし、通信中や認証などダイアログを閉じられたくない場合には Dialog#setCencelable(false) をすれば良い。
+https://developer.android.com/reference/android/app/Dialog#setCancelable(boolean)</description>
+    </item>
     
     <item>
       <title>【Android】モジュール追加 私はこんな風にしてます</title>

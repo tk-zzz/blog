@@ -6,10 +6,19 @@
     <description>Recent content in Tags on ruin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 03 Jul 2020 00:41:20 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2020 01:46:47 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android</title>
+      <link>https://tk-zzz.github.io/tags/android/</link>
+      <pubDate>Tue, 21 Jul 2020 01:46:47 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/tags/android/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Linux</title>
@@ -26,15 +35,6 @@
       <pubDate>Sun, 21 Jun 2020 00:38:31 +0900</pubDate>
       
       <guid>https://tk-zzz.github.io/tags/aseprite/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Android</title>
-      <link>https://tk-zzz.github.io/tags/android/</link>
-      <pubDate>Wed, 27 May 2020 01:22:34 +0900</pubDate>
-      
-      <guid>https://tk-zzz.github.io/tags/android/</guid>
       <description></description>
     </item>
     
