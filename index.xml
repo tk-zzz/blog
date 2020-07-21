@@ -6,10 +6,39 @@
     <description>Recent content on ruin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 21 Jul 2020 01:46:47 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2020 02:15:49 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【VSCode】VSCodeでmarkdownをpreviewする方法</title>
+      <link>https://tk-zzz.github.io/posts/2020/vscode_markdown_preview/</link>
+      <pubDate>Tue, 21 Jul 2020 02:15:49 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/vscode_markdown_preview/</guid>
+      <description>VSCodeで編集しているmarkdownファイルをpreviewするには、
+MACなら
+command + K　-&amp;gt; V
+Windowsなら
+ctrl + K -&amp;gt; V
+で可能。
+pluginなどは不要なので気軽に試すことができました。</description>
+    </item>
+    
+    <item>
+      <title>【VSCode】 vim　pluginでクリップボードを有効にする</title>
+      <link>https://tk-zzz.github.io/posts/2020/vscode_vim_clipboard/</link>
+      <pubDate>Tue, 21 Jul 2020 02:08:28 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/vscode_vim_clipboard/</guid>
+      <description>VSCodeのvim pluginを利用中、クリップボードを有効にする方法。
+左下の設定ボタンからSettings を開き、vim clipboardなどと検索すると
+Vim : Use System Clipboardという項目があるのでこれを有効にするだけで完了。
+jsonファイルのほうで設定するなら
+&amp;quot;vim.useSystemClipboard&amp;quot;: true
+とすれば良さそう。</description>
+    </item>
     
     <item>
       <title>【Android】 Dialogの外をタップしたりバックキーで閉じなくする方法</title>
