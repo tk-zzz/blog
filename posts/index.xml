@@ -6,10 +6,54 @@
     <description>Recent content in Posts on ruin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 21 Jul 2020 02:15:49 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2020 01:21:40 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Git] Editorをvimにする</title>
+      <link>https://tk-zzz.github.io/posts/2020/git_editor_vim/</link>
+      <pubDate>Thu, 27 Aug 2020 01:21:40 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/git_editor_vim/</guid>
+      <description>環境を新しくするたびに調べているのでメモ
+Ubuntuでは初期設定でnanoが起動するがこれをVimにする。
+このコマンド一発でOK
+git config --global core.editor &#39;vim -c &amp;quot;set fenc=utf-8&amp;quot;&#39;</description>
+    </item>
+    
+    <item>
+      <title>[Android Studio] Emulatorを起動するとUbuntuごとフリーズする問題</title>
+      <link>https://tk-zzz.github.io/posts/2020/ubuntu_android_studio_emulator/</link>
+      <pubDate>Thu, 27 Aug 2020 00:48:03 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/ubuntu_android_studio_emulator/</guid>
+      <description>症状 Ubuntu 20.04をインストールしてAndroid StudioのEmulatorを起動しようとすると、
+OSごとフリーズしてキー入力やマウス入力も受け付けなくなり電源を切るしかなくなる問題が必ず発生していた。
+原因 原因はビデオボードのドライバにあった。
+Android StudioのEmulatorの設定で描画をHardwareかSoftwareか選択できる部分があるが、
+これをAutoやHardwareにすると問題が発生し、Softwareにすると発生しなくなることからあたりがついた。
+自分のPCはGTX660を積んでおり、Ubuntuをクリーンインストールしたら何事もなく画面が描画されるので気にせずにいたが、
+この勝手にインストールされたドライバに問題があったらしい。
+とりあえずいろいろ調べて以下のようにすることでこの問題を解決できた。
+1 nvidiaのホームページからLinux用ドライバをダウンロード https://www.nvidia.co.jp/Download/index.aspx?lang=jp
+ここから自分のビデオボードに合うドライバをダウンロードしておく。
+2 今入っているドライバを削除する 自分がやったのは下記のコマンド
+sudo bash -c &amp;quot;echo blacklist nouveau &amp;gt; /etc/modprobe.d/blacklist-nvidia-nouveau.conf&amp;quot; 
+sudo bash -c &amp;quot;echo options nouveau modeset=0 &amp;gt;&amp;gt; /etc/modprobe.d/blacklist-nvidia-nouveau.conf&amp;quot; 
+sudo update-initramfs -u
+(３つ目のコマンドはすこし時間がかかる)
+このあたりの記事を参考にしました。
+https://qiita.com/ohta6/items/684b9ecd4d67a52e5a7f
+3 再起動 &amp;amp; ドライバインストール 一度OSを再起動するとドライバがなくなっているので解像度がめちゃくちゃ下がった画面が表示されたが、
+操作自体は問題なくできる。
+ここで1でダウンロードしたファイルをターミナルから実行。
+実行中にgccとmakeがないというエラーが出るのでaptで入れた。
+あとはなんか選択肢が出るが適当に選んだらインストールが終わった。
+とりあえず再起動してみると画面がHDで表示されるようになり、
+問題のエミュレータを起動すると問題は起きなくなった。</description>
+    </item>
     
     <item>
       <title>【VSCode】VSCodeでmarkdownをpreviewする方法</title>

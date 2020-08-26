@@ -3,18 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tk-zzz.github.io/posts/2020/git_editor_vim/</loc>
+    <lastmod>2020-08-27T01:21:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/categories/</loc>
+    <lastmod>2020-08-27T01:21:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/categories/git/</loc>
+    <lastmod>2020-08-27T01:21:40+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tk-zzz.github.io/posts/</loc>
-    <lastmod>2020-07-21T02:15:49+09:00</lastmod>
+    <lastmod>2020-08-27T01:21:40+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://tk-zzz.github.io/</loc>
-    <lastmod>2020-07-21T02:15:49+09:00</lastmod>
+    <lastmod>2020-08-27T01:21:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/posts/2020/ubuntu_android_studio_emulator/</loc>
+    <lastmod>2020-08-27T00:48:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/tags/android/</loc>
+    <lastmod>2020-08-27T00:48:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/tags/androidstudio/</loc>
+    <lastmod>2020-08-27T00:48:03+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://tk-zzz.github.io/tags/</loc>
-    <lastmod>2020-07-21T02:15:49+09:00</lastmod>
+    <lastmod>2020-08-27T00:48:03+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/tags/ubuntu/</loc>
+    <lastmod>2020-08-27T00:48:03+09:00</lastmod>
   </url>
   
   <url>
@@ -30,11 +65,6 @@
   <url>
     <loc>https://tk-zzz.github.io/posts/2020/vscode_vim_clipboard/</loc>
     <lastmod>2020-07-21T02:08:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tk-zzz.github.io/tags/android/</loc>
-    <lastmod>2020-07-21T01:46:47+09:00</lastmod>
   </url>
   
   <url>
@@ -138,18 +168,8 @@
   </url>
   
   <url>
-    <loc>https://tk-zzz.github.io/tags/androidstudio/</loc>
-    <lastmod>2020-01-10T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://tk-zzz.github.io/posts/2020/rebase_initial_commit/</loc>
     <lastmod>2020-01-10T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tk-zzz.github.io/tags/ubuntu/</loc>
-    <lastmod>2019-12-19T00:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -159,10 +179,6 @@
   
   <url>
     <loc>https://tk-zzz.github.io/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://tk-zzz.github.io/categories/</loc>
   </url>
   
   <url>
