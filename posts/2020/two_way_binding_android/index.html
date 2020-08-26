@@ -227,8 +227,8 @@ val text = LiveData&lt;String&gt;()
     get() = _text
 
 </code></pre></div><p>のようなViewModelの書き方をしていたが、<br>
-これではtextの値で双方向データバインディング仕様としてもprivateのtextにはアクセスできずビルドが通らなくて悩んでいた。
-この書き方は下記のを参考にしていた。
+これではtextの値で双方向データバインディング仕様としてもprivateのtextにはアクセスできずビルドが通らなくて悩んでいた。<br>
+この書き方は下記のを参考にしていた。<br>
 <a href="https://github.com/google/iosched/blob/84415833c606210f8cddc1458ea23c02a8401d3c/mobile/src/main/java/com/google/samples/apps/iosched/ui/signin/SignInViewModel.kt#L35-L37">https://github.com/google/iosched/blob/84415833c606210f8cddc1458ea23c02a8401d3c/mobile/src/main/java/com/google/samples/apps/iosched/ui/signin/SignInViewModel.kt#L35-L37</a></p>
 <p>結局下記のようにprivateを外しMutableLiveDataにすることで動くようになった。</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">val text = MutableLiveData&lt;String&gt;()
