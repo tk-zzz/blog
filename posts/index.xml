@@ -6,10 +6,38 @@
     <description>Recent content in Posts on ruin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Aug 2020 01:21:40 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2020 01:48:05 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Android]双方向データバインディングで詰まったところ</title>
+      <link>https://tk-zzz.github.io/posts/2020/two_way_binding_android/</link>
+      <pubDate>Thu, 27 Aug 2020 01:48:05 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/two_way_binding_android/</guid>
+      <description>双方向データバインディングを実装しようとして詰まったところのメモ。
+これまで私は単方向のデータバインディングなら実装したことがあったが、
+双方向になることで詰まった点がいくつかあった。
+Githubに最小構成で入力したテキストを表示するサンプルを上げました。
+https://github.com/tk-zzz/TwoWayBindingExample
+databindingの依存 ネットで検索すると
+apply plugin: &amp;#39;kotlin-kapt&amp;#39; android { dataBinding { enabled = true } } と書いてある記事が多く見られるが、今では下記の追加だけで有効化できる。
+buildFeatures { dataBinding true } 参考： https://developer.android.com/jetpack/androidx/releases/databinding?hl=ja
+viewModelの呼び方 これは双方向に限った話ではないが、
+Fragment上でViewModelを取得するとき
+private val mainViewModel : MainViewModel by activityViewModels()
+とシンプルに呼ぶことができる。
+しかしこれをするにはgradleの依存に
+implementation &amp;quot;androidx.fragment:fragment-ktx:1.2.5&amp;quot;
+を追加する必要があるのと、
+そのままではjvmがなんとかかんとかなエラーが出るため
+kotlinOptions { jvmTarget = &amp;#39;1.8&amp;#39; } の２つをappレベルのbuild.gradleに追加する必要がある。
+lifecycleOwnerを設定し忘れる lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。
+val binding = DataBindingUtil.bind&amp;lt;FragmentMainBinding&amp;gt;(view)?.apply { viewModel = this@MainFragment.mainViewModel lifecycleOwner = this@MainFragment } viewModelで設定した値がMutableLiveDataではなくLiveDataだった これまで私は単方向のデータバインディングしか扱ってこなかったので、
+private val text : LiveData&amp;lt;String&amp;gt; set() = _text val _text = MutableLiveData&amp;lt;String&amp;gt;() のようなViewModelの書き方をしていたが、</description>
+    </item>
     
     <item>
       <title>[Git] Editorをvimにする</title>

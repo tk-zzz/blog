@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="tk-zzz">
+    <meta name="description" content="双方向データバインディングを実装しようとして詰まったところのメモ。
+これまで私は単方向のデータバインディングなら実装したことがあったが、
+双方向になることで詰まった点がいくつかあった。
+Githubに最小構成で入力したテキストを表示するサンプルを上げました。
+https://github.com/tk-zzz/TwoWayBindingExample
+databindingの依存 ネットで検索すると
+apply plugin: &#39;kotlin-kapt&#39; android { dataBinding { enabled = true } } と書いてある記事が多く見られるが、今では下記の追加だけで有効化できる。
+buildFeatures { dataBinding true } 参考： https://developer.android.com/jetpack/androidx/releases/databinding?hl=ja
+viewModelの呼び方 これは双方向に限った話ではないが、
+Fragment上でViewModelを取得するとき
+private val mainViewModel : MainViewModel by activityViewModels()
+とシンプルに呼ぶことができる。
+しかしこれをするにはgradleの依存に
+implementation &quot;androidx.fragment:fragment-ktx:1.2.5&quot;
+を追加する必要があるのと、
+そのままではjvmがなんとかかんとかなエラーが出るため
+kotlinOptions { jvmTarget = &#39;1.8&#39; } の２つをappレベルのbuild.gradleに追加する必要がある。
+lifecycleOwnerを設定し忘れる lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。
+val binding = DataBindingUtil.bind&lt;FragmentMainBinding&gt;(view)?.apply { viewModel = this@MainFragment.mainViewModel lifecycleOwner = this@MainFragment } viewModelで設定した値がMutableLiveDataではなくLiveDataだった これまで私は単方向のデータバインディングしか扱ってこなかったので、
+private val text : LiveData&lt;String&gt; set() = _text val _text = MutableLiveData&lt;String&gt;() のようなViewModelの書き方をしていたが、">
+    <meta name="keywords" content="android,kotlin,blog,developer,personal">
+
+    
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[Android]双方向データバインディングで詰まったところ"/>
+<meta name="twitter:description" content="双方向データバインディングを実装しようとして詰まったところのメモ。
+これまで私は単方向のデータバインディングなら実装したことがあったが、
+双方向になることで詰まった点がいくつかあった。
+Githubに最小構成で入力したテキストを表示するサンプルを上げました。
+https://github.com/tk-zzz/TwoWayBindingExample
+databindingの依存 ネットで検索すると
+apply plugin: &#39;kotlin-kapt&#39; android { dataBinding { enabled = true } } と書いてある記事が多く見られるが、今では下記の追加だけで有効化できる。
+buildFeatures { dataBinding true } 参考： https://developer.android.com/jetpack/androidx/releases/databinding?hl=ja
+viewModelの呼び方 これは双方向に限った話ではないが、
+Fragment上でViewModelを取得するとき
+private val mainViewModel : MainViewModel by activityViewModels()
+とシンプルに呼ぶことができる。
+しかしこれをするにはgradleの依存に
+implementation &quot;androidx.fragment:fragment-ktx:1.2.5&quot;
+を追加する必要があるのと、
+そのままではjvmがなんとかかんとかなエラーが出るため
+kotlinOptions { jvmTarget = &#39;1.8&#39; } の２つをappレベルのbuild.gradleに追加する必要がある。
+lifecycleOwnerを設定し忘れる lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。
+val binding = DataBindingUtil.bind&lt;FragmentMainBinding&gt;(view)?.apply { viewModel = this@MainFragment.mainViewModel lifecycleOwner = this@MainFragment } viewModelで設定した値がMutableLiveDataではなくLiveDataだった これまで私は単方向のデータバインディングしか扱ってこなかったので、
+private val text : LiveData&lt;String&gt; set() = _text val _text = MutableLiveData&lt;String&gt;() のようなViewModelの書き方をしていたが、"/>
+
+    <meta property="og:title" content="[Android]双方向データバインディングで詰まったところ" />
+<meta property="og:description" content="双方向データバインディングを実装しようとして詰まったところのメモ。
+これまで私は単方向のデータバインディングなら実装したことがあったが、
+双方向になることで詰まった点がいくつかあった。
+Githubに最小構成で入力したテキストを表示するサンプルを上げました。
+https://github.com/tk-zzz/TwoWayBindingExample
+databindingの依存 ネットで検索すると
+apply plugin: &#39;kotlin-kapt&#39; android { dataBinding { enabled = true } } と書いてある記事が多く見られるが、今では下記の追加だけで有効化できる。
+buildFeatures { dataBinding true } 参考： https://developer.android.com/jetpack/androidx/releases/databinding?hl=ja
+viewModelの呼び方 これは双方向に限った話ではないが、
+Fragment上でViewModelを取得するとき
+private val mainViewModel : MainViewModel by activityViewModels()
+とシンプルに呼ぶことができる。
+しかしこれをするにはgradleの依存に
+implementation &quot;androidx.fragment:fragment-ktx:1.2.5&quot;
+を追加する必要があるのと、
+そのままではjvmがなんとかかんとかなエラーが出るため
+kotlinOptions { jvmTarget = &#39;1.8&#39; } の２つをappレベルのbuild.gradleに追加する必要がある。
+lifecycleOwnerを設定し忘れる lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。
+val binding = DataBindingUtil.bind&lt;FragmentMainBinding&gt;(view)?.apply { viewModel = this@MainFragment.mainViewModel lifecycleOwner = this@MainFragment } viewModelで設定した値がMutableLiveDataではなくLiveDataだった これまで私は単方向のデータバインディングしか扱ってこなかったので、
+private val text : LiveData&lt;String&gt; set() = _text val _text = MutableLiveData&lt;String&gt;() のようなViewModelの書き方をしていたが、" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tk-zzz.github.io/posts/2020/two_way_binding_android/" />
+<meta property="article:published_time" content="2020-08-27T01:48:05+09:00" />
+<meta property="article:modified_time" content="2020-08-27T01:48:05+09:00" />
+
+
+    
+      <base href="https://tk-zzz.github.io/posts/2020/two_way_binding_android/">
+    
+    <title>
+  [Android]双方向データバインディングで詰まったところ · ruin
+</title>
+
+    
+      <link rel="canonical" href="https://tk-zzz.github.io/posts/2020/two_way_binding_android/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://tk-zzz.github.io/css/coder.min.3219ef62ae52679b7a9c19043171c3cd9f523628c2a65f3ef247ee18836bc90b.css" integrity="sha256-MhnvYq5SZ5t6nBkEMXHDzZ9SNijCpl8&#43;8kfuGINryQs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://tk-zzz.github.io/css/coder-dark.min.e78e80fc3a585a4d1c8fc7f58623b6ff852411e38431a9cd1792877ecaa160f6.css" integrity="sha256-546A/DpYWk0cj8f1hiO2/4UkEeOEManNF5KHfsqhYPY=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://tk-zzz.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://tk-zzz.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.68.3" />
+    <script data-ad-client="ca-pub-3564313575417722" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto"
+        onload=""
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://tk-zzz.github.io/">
+      ruin
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://tk-zzz.github.io/posts/">Blog</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">[Android]双方向データバインディングで詰まったところ</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-08-27T01:48:05&#43;09:00'>
+                2020/8/27
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1-minute read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>双方向データバインディングを実装しようとして詰まったところのメモ。<br>
+これまで私は単方向のデータバインディングなら実装したことがあったが、<br>
+双方向になることで詰まった点がいくつかあった。</p>
+<p>Githubに最小構成で入力したテキストを表示するサンプルを上げました。<br>
+<a href="https://github.com/tk-zzz/TwoWayBindingExample">https://github.com/tk-zzz/TwoWayBindingExample</a></p>
+<h2 id="databindingの依存">databindingの依存</h2>
+<p>ネットで検索すると</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">apply plugin: &#39;kotlin-kapt&#39;
+
+android {
+    dataBinding {
+        enabled = true
+    }
+}
+</code></pre></div><p>と書いてある記事が多く見られるが、今では下記の追加だけで有効化できる。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    buildFeatures {
+        dataBinding true
+    }
+</code></pre></div><p>参考： <a href="https://developer.android.com/jetpack/androidx/releases/databinding?hl=ja">https://developer.android.com/jetpack/androidx/releases/databinding?hl=ja</a></p>
+<h2 id="viewmodelの呼び方">viewModelの呼び方</h2>
+<p>これは双方向に限った話ではないが、<br>
+Fragment上でViewModelを取得するとき<br>
+<code>private val mainViewModel : MainViewModel by activityViewModels()</code><br>
+とシンプルに呼ぶことができる。</p>
+<p>しかしこれをするにはgradleの依存に<br>
+<code>implementation &quot;androidx.fragment:fragment-ktx:1.2.5&quot;</code><br>
+を追加する必要があるのと、<br>
+そのままではjvmがなんとかかんとかなエラーが出るため</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">    kotlinOptions {
+        jvmTarget = &#39;1.8&#39;
+    }
+</code></pre></div><p>の２つをappレベルのbuild.gradleに追加する必要がある。</p>
+<h2 id="lifecycleownerを設定し忘れる">lifecycleOwnerを設定し忘れる</h2>
+<p>lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">        val binding = DataBindingUtil.bind&lt;FragmentMainBinding&gt;(view)?.apply {
+            viewModel = this@MainFragment.mainViewModel
+            lifecycleOwner = this@MainFragment
+        }
+</code></pre></div><h2 id="viewmodelで設定した値がmutablelivedataではなくlivedataだった">viewModelで設定した値がMutableLiveDataではなくLiveDataだった</h2>
+<p>これまで私は単方向のデータバインディングしか扱ってこなかったので、</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">private val text : LiveData&lt;String&gt;
+    set() = _text
+val _text = MutableLiveData&lt;String&gt;()
+</code></pre></div><p>のようなViewModelの書き方をしていたが、<br>
+これではtextの値で双方向データバインディング仕様としてもprivateのtextにはアクセスできずビルドが通らなくて悩んでいた。</p>
+<p>結局下記のようにprivateを外しMutableLiveDataにすることで動くようになった。</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">val text = MutableLiveData&lt;String&gt;()
+</code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         tk-zzz 
+      
+      
+      
+        
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-166936168-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    <script>
+(function(f, a, t, h, o, m){
+	a[h]=a[h]||function(){
+		(a[h].q=a[h].q||[]).push(arguments)
+	};
+	o=f.createElement('script'),
+	m=f.getElementsByTagName('script')[0];
+	o.async=1; o.src=t; o.id='fathom-script';
+	m.parentNode.insertBefore(o,m)
+})(document, window, '//analytics.example.com/tracker.js', 'fathom');
+fathom('set', 'siteId', 'ABCDE');
+fathom('trackPageview');
+</script>
+
+
+  </body>
+
+</html>
