@@ -26,7 +26,7 @@ implementation &quot;androidx.fragment:fragment-ktx:1.2.5&quot;
 kotlinOptions { jvmTarget = &#39;1.8&#39; } の２つをappレベルのbuild.gradleに追加する必要がある。
 lifecycleOwnerを設定し忘れる lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。
 val binding = DataBindingUtil.bind&lt;FragmentMainBinding&gt;(view)?.apply { viewModel = this@MainFragment.mainViewModel lifecycleOwner = this@MainFragment } viewModelで設定した値がMutableLiveDataではなくLiveDataだった これまで私は単方向のデータバインディングしか扱ってこなかったので、
-private val text : LiveData&lt;String&gt; set() = _text val _text = MutableLiveData&lt;String&gt;() のようなViewModelの書き方をしていたが、">
+private val _text : MutableLiveData&lt;String&gt; val text = LiveData&lt;String&gt;() get() = _text のようなViewModelの書き方をしていたが、">
     <meta name="keywords" content="android,kotlin,blog,developer,personal">
 
     
@@ -52,7 +52,7 @@ implementation &quot;androidx.fragment:fragment-ktx:1.2.5&quot;
 kotlinOptions { jvmTarget = &#39;1.8&#39; } の２つをappレベルのbuild.gradleに追加する必要がある。
 lifecycleOwnerを設定し忘れる lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。
 val binding = DataBindingUtil.bind&lt;FragmentMainBinding&gt;(view)?.apply { viewModel = this@MainFragment.mainViewModel lifecycleOwner = this@MainFragment } viewModelで設定した値がMutableLiveDataではなくLiveDataだった これまで私は単方向のデータバインディングしか扱ってこなかったので、
-private val text : LiveData&lt;String&gt; set() = _text val _text = MutableLiveData&lt;String&gt;() のようなViewModelの書き方をしていたが、"/>
+private val _text : MutableLiveData&lt;String&gt; val text = LiveData&lt;String&gt;() get() = _text のようなViewModelの書き方をしていたが、"/>
 
     <meta property="og:title" content="[Android]双方向データバインディングで詰まったところ" />
 <meta property="og:description" content="双方向データバインディングを実装しようとして詰まったところのメモ。
@@ -74,7 +74,7 @@ implementation &quot;androidx.fragment:fragment-ktx:1.2.5&quot;
 kotlinOptions { jvmTarget = &#39;1.8&#39; } の２つをappレベルのbuild.gradleに追加する必要がある。
 lifecycleOwnerを設定し忘れる lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。
 val binding = DataBindingUtil.bind&lt;FragmentMainBinding&gt;(view)?.apply { viewModel = this@MainFragment.mainViewModel lifecycleOwner = this@MainFragment } viewModelで設定した値がMutableLiveDataではなくLiveDataだった これまで私は単方向のデータバインディングしか扱ってこなかったので、
-private val text : LiveData&lt;String&gt; set() = _text val _text = MutableLiveData&lt;String&gt;() のようなViewModelの書き方をしていたが、" />
+private val _text : MutableLiveData&lt;String&gt; val text = LiveData&lt;String&gt;() get() = _text のようなViewModelの書き方をしていたが、" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tk-zzz.github.io/posts/2020/two_way_binding_android/" />
 <meta property="article:published_time" content="2020-08-27T01:48:05+09:00" />
@@ -222,11 +222,14 @@ Fragment上でViewModelを取得するとき<br>
         }
 </code></pre></div><h2 id="viewmodelで設定した値がmutablelivedataではなくlivedataだった">viewModelで設定した値がMutableLiveDataではなくLiveDataだった</h2>
 <p>これまで私は単方向のデータバインディングしか扱ってこなかったので、</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">private val text : LiveData&lt;String&gt;
-    set() = _text
-val _text = MutableLiveData&lt;String&gt;()
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">private val _text : MutableLiveData&lt;String&gt;
+val text = LiveData&lt;String&gt;()
+    get() = _text
+
 </code></pre></div><p>のようなViewModelの書き方をしていたが、<br>
-これではtextの値で双方向データバインディング仕様としてもprivateのtextにはアクセスできずビルドが通らなくて悩んでいた。</p>
+これではtextの値で双方向データバインディング仕様としてもprivateのtextにはアクセスできずビルドが通らなくて悩んでいた。
+この書き方は下記のを参考にしていた。
+<a href="https://github.com/google/iosched/blob/84415833c606210f8cddc1458ea23c02a8401d3c/mobile/src/main/java/com/google/samples/apps/iosched/ui/signin/SignInViewModel.kt#L35-L37">https://github.com/google/iosched/blob/84415833c606210f8cddc1458ea23c02a8401d3c/mobile/src/main/java/com/google/samples/apps/iosched/ui/signin/SignInViewModel.kt#L35-L37</a></p>
 <p>結局下記のようにprivateを外しMutableLiveDataにすることで動くようになった。</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">val text = MutableLiveData&lt;String&gt;()
 </code></pre></div>

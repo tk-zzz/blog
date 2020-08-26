@@ -36,7 +36,7 @@ implementation &amp;quot;androidx.fragment:fragment-ktx:1.2.5&amp;quot;
 kotlinOptions { jvmTarget = &amp;#39;1.8&amp;#39; } の２つをappレベルのbuild.gradleに追加する必要がある。
 lifecycleOwnerを設定し忘れる lifecycleOwnerに自身のFragmentを設定し忘れると動作しない。
 val binding = DataBindingUtil.bind&amp;lt;FragmentMainBinding&amp;gt;(view)?.apply { viewModel = this@MainFragment.mainViewModel lifecycleOwner = this@MainFragment } viewModelで設定した値がMutableLiveDataではなくLiveDataだった これまで私は単方向のデータバインディングしか扱ってこなかったので、
-private val text : LiveData&amp;lt;String&amp;gt; set() = _text val _text = MutableLiveData&amp;lt;String&amp;gt;() のようなViewModelの書き方をしていたが、</description>
+private val _text : MutableLiveData&amp;lt;String&amp;gt; val text = LiveData&amp;lt;String&amp;gt;() get() = _text のようなViewModelの書き方をしていたが、</description>
     </item>
     
     <item>
