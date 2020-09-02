@@ -6,10 +6,30 @@
     <description>Recent content in Posts on ruin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 27 Aug 2020 01:48:05 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2020 02:47:28 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Android]RxJava &#43; Retrofit &#43; GsonでAPIを叩く</title>
+      <link>https://tk-zzz.github.io/posts/2020/rx_retrofit_gson_api/</link>
+      <pubDate>Thu, 03 Sep 2020 02:47:28 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/rx_retrofit_gson_api/</guid>
+      <description>RxJava + Retrofit + GsonでAPIを叩く必要があったので、やったことのメモ。
+ネットのいろいろな記事を参考にしながらやったので正直良い実装かはわからない。
+Rx苦手なのでKotlin Coroutineのほうが好きです。
+作ってみたものをアップロードしました。
+https://github.com/tk-zzz/RxApiExample
+前提 Kotlin + RxJava + Retrofit + GsonでAPIをたたくとこまでやりました。
+叩くのは下記のAPIです。
+https://github.com/madefor/postal-code-api
+1 build.gradleに依存を追加 今回の実装で下記の依存をappレベルのbuild.gradleに追加しました。
+implementation &amp;#34;io.reactivex:rxjava:1.3.8&amp;#34; implementation &amp;#34;io.reactivex:rxandroid:1.2.1&amp;#34; implementation &amp;#39;com.squareup.retrofit2:retrofit:2.6.0&amp;#39; implementation &amp;#39;com.squareup.retrofit2:converter-gson:2.6.0&amp;#39; implementation &amp;#39;com.squareup.retrofit2:adapter-rxjava:2.9.0&amp;#39; implementation &amp;#34;com.squareup.okhttp3:logging-interceptor:4.8.1&amp;#34; 2 ZipCodeModel まず、APIで返却されるデータのためのクラスを作成します。
+今回は下記のようなデータが返されます。
+{ &amp;#34;code&amp;#34;: &amp;#34;6180000&amp;#34;, &amp;#34;data&amp;#34;: [ { &amp;#34;prefcode&amp;#34;: &amp;#34;26&amp;#34;, &amp;#34;ja&amp;#34;: { &amp;#34;prefecture&amp;#34;: &amp;#34;京都府&amp;#34;, &amp;#34;address1&amp;#34;: &amp;#34;乙訓郡大山崎町&amp;#34;, &amp;#34;address2&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;address3&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;address4&amp;#34;: &amp;#34;&amp;#34; }, &amp;#34;en&amp;#34;: { &amp;#34;prefecture&amp;#34;: &amp;#34;Kyoto&amp;#34;, &amp;#34;address1&amp;#34;: &amp;#34;Oyamazaki-cho, Otokuni-gun&amp;#34;, &amp;#34;address2&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;address3&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;address4&amp;#34;: &amp;#34;&amp;#34; } }, { &amp;#34;prefcode&amp;#34;: &amp;#34;27&amp;#34;, &amp;#34;ja&amp;#34;: { &amp;#34;prefecture&amp;#34;: &amp;#34;大阪府&amp;#34;, &amp;#34;address1&amp;#34;: &amp;#34;三島郡島本町&amp;#34;, &amp;#34;address2&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;address3&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;address4&amp;#34;: &amp;#34;&amp;#34; }, &amp;#34;en&amp;#34;: { &amp;#34;prefecture&amp;#34;: &amp;#34;Osaka&amp;#34;, &amp;#34;address1&amp;#34;: &amp;#34;Shimamoto-cho, Mishima-gun&amp;#34;, &amp;#34;address2&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;address3&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;address4&amp;#34;: &amp;#34;&amp;#34; } } ] } この場合は、下記のようなデータクラスを作成することで動作しました。</description>
+    </item>
     
     <item>
       <title>[Android]双方向データバインディングで詰まったところ</title>
