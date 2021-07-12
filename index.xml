@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ruin</title>
+    <title>MEMO</title>
     <link>https://tk-zzz.github.io/</link>
-    <description>Recent content on ruin</description>
+    <description>Recent content on MEMO</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Sep 2020 02:47:28 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2020 23:29:33 +0900</lastBuildDate>
     
 	<atom:link href="https://tk-zzz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Android]DatePickerDialogでSpinnerModeはまだ使える</title>
+      <link>https://tk-zzz.github.io/posts/2020/datepicker_spinner_mode/</link>
+      <pubDate>Sun, 25 Oct 2020 23:29:33 +0900</pubDate>
+      
+      <guid>https://tk-zzz.github.io/posts/2020/datepicker_spinner_mode/</guid>
+      <description>DatePickerは特に設定をしないとカレンダー形式で表示される。
+てっきり以前あったスピナーのものは使えなくなったと思っていたが、
+調べてみるとまだ使えた。
+class SpinnerDatePickerDialogFragment: DialogFragment() { @RequiresApi(Build.VERSION_CODES.N) override fun onCreateDialog(savedInstanceState: Bundle?): Dialog { return DatePickerDialog(requireContext(), R.style.MySpinnerDatePickerStyle, DatePickerDialog.OnDateSetListener { p0, p1, p2, p3 -&amp;gt; }, 1,0,1) } } style.xmlにこれを定義。
+&amp;lt;style name=&amp;#34;MySpinnerDatePickerStyle&amp;#34; parent=&amp;#34;android:Theme.Material.Dialog&amp;#34;&amp;gt; &amp;lt;item name=&amp;#34;android:datePickerStyle&amp;#34;&amp;gt;@style/MySpinnerDatePicker&amp;lt;/item&amp;gt; &amp;lt;/style&amp;gt; &amp;lt;style name=&amp;#34;MySpinnerDatePicker&amp;#34; parent=&amp;#34;android:Widget.Material.DatePicker&amp;#34;&amp;gt; &amp;lt;item name=&amp;#34;android:datePickerMode&amp;#34;&amp;gt;spinner&amp;lt;/item&amp;gt; &amp;lt;/style&amp;gt;  このようにするとSpinnerModeでDatePickerDialogを表示することができました。
+xmlでの定義ではなく、プログラム側からの設定がしたかったので色々検索したがやり方が見つかりませんでした。
+setSpinnerShownというメソッドがあったがAPI Level24でdeprecatedとなっている。
+https://developer.android.com/reference/android/widget/DatePicker#setSpinnersShown(boolean)
+ Calling this method has no effect when the R.styleable.DatePicker_datePickerMode attribute is set to calendar.
+ https://developer.android.com/reference/android/R.styleable#DatePicker_datePickerMode
+ public static final int DatePicker_datePickerMode</description>
+    </item>
     
     <item>
       <title>[Android]RxJava &#43; Retrofit &#43; GsonでAPIを叩く</title>

@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tk-zzz.github.io/posts/2020/rx_retrofit_gson_api/</loc>
-    <lastmod>2020-09-03T02:47:28+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tk-zzz.github.io/posts/</loc>
-    <lastmod>2020-09-03T02:47:28+09:00</lastmod>
+    <loc>https://tk-zzz.github.io/posts/2020/datepicker_spinner_mode/</loc>
+    <lastmod>2020-10-25T23:29:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://tk-zzz.github.io/</loc>
+    <lastmod>2020-10-25T23:29:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/posts/</loc>
+    <lastmod>2020-10-25T23:29:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tk-zzz.github.io/posts/2020/rx_retrofit_gson_api/</loc>
     <lastmod>2020-09-03T02:47:28+09:00</lastmod>
   </url>
   
